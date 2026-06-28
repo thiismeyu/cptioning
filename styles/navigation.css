@@ -1,0 +1,139 @@
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
+
+.navigation{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:4rem;
+
+}
+
+.nav-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.nav-logo{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--gradient-primary);
+
+    box-shadow:var(--shadow-primary);
+
+    flex-shrink:0;
+
+}
+
+.nav-logo img{
+
+    width:34px;
+
+    height:34px;
+
+    object-fit:contain;
+
+}
+
+.nav-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.nav-title{
+
+    font-size:1.45rem;
+
+    font-weight:800;
+
+    letter-spacing:-.03em;
+
+    color:var(--text-primary);
+
+}
+
+.nav-subtitle{
+
+    margin-top:3px;
+
+    font-size:.82rem;
+
+    color:var(--text-muted);
+
+}
+
+.nav-menu{
+
+    display:flex;
+
+    gap:16px;
+
+}
+
+.nav-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.status-dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:#2ECC71;
+
+    box-shadow:0 0 14px #2ECC71;
+
+}
+
+.status-text{
+
+    font-size:.75rem;
+
+    color:var(--text-muted);
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+}

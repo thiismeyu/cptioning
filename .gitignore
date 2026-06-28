@@ -1,0 +1,35 @@
+# ─── Model checkpoint (terlalu besar untuk Git) ───────────────────────────
+models/*.pth
+models/*.pt
+models/*.bin
+models/*.safetensors
+
+# ─── Python ───────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+venv/
+env/
+
+# ─── Streamlit ────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ─── OS ───────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── IDE ──────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.code-workspace
+
+# ─── Logs ─────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ─── Notebook checkpoints ─────────────────────────────────────────────────
+.ipynb_checkpoints/

@@ -1,0 +1,3 @@
+"""
+ARRAI Caption Components
+"""

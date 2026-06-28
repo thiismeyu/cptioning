@@ -1,0 +1,304 @@
+/* ============================================================
+   ARRAI DESIGN SYSTEM
+   File : styles/variables.css
+   ============================================================ */
+
+:root {
+
+    /* ========================================================
+       BRAND
+    ======================================================== */
+
+    --brand-name: "ARRAI";
+
+    /* ========================================================
+       PRIMARY COLORS
+    ======================================================== */
+
+    --primary: #6D5DF6;
+    --primary-dark: #5B4CE2;
+    --primary-light: #8E81FF;
+    --primary-glow: rgba(109,93,246,0.3);
+
+    --accent: #27C5FF;
+    --accent-dark: #00AEEA;
+    --accent-glow: rgba(39,197,255,0.3);
+
+    --glow-white: rgba(255,255,255,0.05);
+
+    /* ========================================================
+       BACKGROUND
+    ======================================================== */
+
+    --background: #090C10;
+    --background-secondary: #10141B;
+    --background-tertiary: #161B24;
+
+    --surface: #181F2A;
+    --surface-hover: #202837;
+
+    --glass: rgba(255,255,255,.05);
+    --glass-hover: rgba(255,255,255,.08);
+
+    /* Grid Pattern */
+    --pattern-grid: 
+        linear-gradient(rgba(109,93,246,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(109,93,246,0.03) 1px, transparent 1px);
+    --pattern-size: 50px 50px;
+
+    /* ========================================================
+       TEXT
+    ======================================================== */
+
+    --text-primary: #F5F7FA;
+    --text-secondary: #B7C0CE;
+    --text-muted: #8E98A8;
+
+    /* ========================================================
+       STATUS
+    ======================================================== */
+
+    --success: #2ECC71;
+    --success-glow: rgba(46,204,113,0.3);
+    --warning: #F5B041;
+    --warning-glow: rgba(245,176,65,0.3);
+    --danger: #FF5B5B;
+    --danger-glow: rgba(255,91,91,0.3);
+    --info: #27C5FF;
+    --info-glow: rgba(39,197,255,0.3);
+
+    /* ========================================================
+       BORDER
+    ======================================================== */
+
+    --border: rgba(255,255,255,.08);
+    --border-light: rgba(255,255,255,.12);
+    --border-hover: rgba(255,255,255,.2);
+
+    /* ========================================================
+       SHADOW
+    ======================================================== */
+
+    --shadow-xs: 0 2px 8px rgba(0,0,0,.20);
+    --shadow-sm: 0 8px 20px rgba(0,0,0,.25);
+    --shadow-md: 0 15px 35px rgba(0,0,0,.30);
+    --shadow-lg: 0 25px 60px rgba(0,0,0,.40);
+
+    --shadow-primary: 0 10px 30px rgba(109,93,246,.25);
+    --shadow-primary-glow: 0 0 60px rgba(109,93,246,.15);
+    --shadow-accent: 0 10px 30px rgba(39,197,255,.25);
+
+    /* ========================================================
+       BORDER RADIUS
+    ======================================================== */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+    --radius-round: 999px;
+
+    /* ========================================================
+       SPACING
+    ======================================================== */
+
+    --space-1: .25rem;
+    --space-2: .5rem;
+    --space-3: .75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --space-9: 5rem;
+    --space-10: 6rem;
+
+    /* ========================================================
+       TYPOGRAPHY
+    ======================================================== */
+
+    --font-family:
+        "Inter",
+        "Segoe UI",
+        sans-serif;
+
+    --font-xs: .75rem;
+    --font-sm: .875rem;
+    --font-md: 1rem;
+    --font-lg: 1.15rem;
+    --font-xl: 1.5rem;
+    --font-2xl: 2rem;
+    --font-3xl: 3rem;
+    --font-4xl: 4rem;
+    --font-5xl: 5rem;
+
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-extrabold: 800;
+    --weight-black: 900;
+
+    --letter-spacing-tight: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+
+    /* ========================================================
+       TRANSITIONS
+    ======================================================== */
+
+    --transition-fast: .20s ease;
+    --transition-normal: .35s ease;
+    --transition-slow: .60s ease;
+    --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* ========================================================
+       LAYOUT
+    ======================================================== */
+
+    --container-width: 1400px;
+    --navbar-height: 78px;
+    --sidebar-width: 290px;
+
+    /* ========================================================
+       BUTTON
+    ======================================================== */
+
+    --button-height: 54px;
+    --button-min-width: 120px;
+
+    /* ========================================================
+       CARD
+    ======================================================== */
+
+    --card-padding: 24px;
+    --card-gap: 20px;
+
+    /* ========================================================
+       HERO
+    ======================================================== */
+
+    --hero-title-size: clamp(3rem, 6vw, 5rem);
+    --hero-subtitle-size: clamp(1.2rem, 2vw, 2rem);
+    --hero-description-size: 1.1rem;
+
+    /* ========================================================
+       GRADIENT
+    ======================================================== */
+
+    --gradient-primary:
+        linear-gradient(
+            135deg,
+            #6D5DF6,
+            #27C5FF
+        );
+
+    --gradient-primary-reverse:
+        linear-gradient(
+            135deg,
+            #27C5FF,
+            #6D5DF6
+        );
+
+    --gradient-card:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02)
+        );
+
+    --gradient-dark:
+        linear-gradient(
+            180deg,
+            #090C10,
+            #10141B
+        );
+
+    --gradient-hero:
+        radial-gradient(
+            ellipse at 20% 50%,
+            rgba(109,93,246,0.15) 0%,
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse at 80% 50%,
+            rgba(39,197,255,0.1) 0%,
+            transparent 60%
+        );
+
+    /* ========================================================
+       OPACITY
+    ======================================================== */
+
+    --opacity-low: 0.05;
+    --opacity-medium: 0.1;
+    --opacity-high: 0.2;
+    --opacity-full: 1;
+
+    /* ========================================================
+       Z-INDEX
+    ======================================================== */
+
+    --z-base: 1;
+    --z-elevated: 10;
+    --z-dropdown: 50;
+    --z-modal: 100;
+    --z-tooltip: 200;
+    --z-toast: 300;
+
+    /* ========================================================
+       ANIMATION
+    ======================================================== */
+
+    --animation-duration-fast: 0.3s;
+    --animation-duration-normal: 0.6s;
+    --animation-duration-slow: 1s;
+
+    --animation-ease: ease;
+    --animation-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+}
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--background-tertiary);
+    border-radius: var(--radius-round);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--background-tertiary) var(--background);
+}
+
+/* ============================================================
+   SELECTION
+============================================================ */
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--primary);
+    color: white;
+}

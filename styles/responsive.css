@@ -1,0 +1,264 @@
+/* ==========================================================
+   ARRAI Responsive System v1.0
+   ========================================================== */
+
+/* ==========================================================
+   LARGE DESKTOP
+   ========================================================== */
+
+@media (min-width: 1600px) {
+
+    .block-container {
+
+        max-width: 1500px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   DESKTOP
+   ========================================================== */
+
+@media (max-width: 1200px) {
+
+    .block-container {
+
+        padding-left: 1.5rem;
+
+        padding-right: 1.5rem;
+
+    }
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 56px;
+
+    }
+
+    .technology-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .features-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .score-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 992px) {
+
+    .block-container {
+
+        padding-top: 1rem;
+
+    }
+
+    div[data-testid="metric-container"] {
+
+        min-height: 110px;
+
+    }
+
+    .hero-title {
+
+        font-size: clamp(3rem, 6vw, 4rem);
+
+    }
+
+    .hero-description {
+
+        max-width: 100%;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 40px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 768px) {
+
+    .block-container {
+
+        padding-left: 1rem;
+
+        padding-right: 1rem;
+
+        padding-top: .5rem;
+
+    }
+
+    img {
+
+        width: 100% !important;
+
+        height: auto !important;
+
+    }
+
+    .stButton > button,
+
+    .stDownloadButton > button {
+
+        height: 46px;
+
+        font-size: 14px;
+
+    }
+
+    textarea {
+
+        font-size: 14px !important;
+
+    }
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .hero-metrics {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .technology-grid,
+
+    .features-grid,
+
+    .score-grid,
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-bottom {
+
+        flex-direction: column;
+
+        gap: 14px;
+
+        text-align: center;
+
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+   ========================================================== */
+
+@media (max-width: 576px) {
+
+    .block-container {
+
+        padding-left: .75rem;
+
+        padding-right: .75rem;
+
+    }
+
+    p {
+
+        font-size: 14px;
+
+    }
+
+    div[data-testid="metric-container"] {
+
+        padding: 14px;
+
+    }
+
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+
+        padding: 14px;
+
+    }
+
+    .hero-title {
+
+        font-size: 2.1rem;
+
+    }
+
+    .hero-description {
+
+        font-size: .95rem;
+
+        line-height: 1.8;
+
+    }
+
+    .hero-metrics {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* ==========================================================
+   VERY SMALL DEVICE
+   ========================================================== */
+
+@media (max-width: 420px) {
+
+    .block-container {
+
+        padding-left: .5rem;
+
+        padding-right: .5rem;
+
+    }
+
+    .hero-title {
+
+        font-size: 1.8rem;
+
+    }
+
+    .hero-description {
+
+        font-size: .9rem;
+
+    }
+
+}
