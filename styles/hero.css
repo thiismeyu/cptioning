@@ -1,389 +1,355 @@
 /* ==========================================================
-   HERO
+   HERO — styles/hero.css
    ========================================================== */
 
-.hero{
 
-    position:relative;
+/* ==========================================================
+   BACKGROUND BLOBS
+   ========================================================== */
 
-    padding-top:4rem;
+.hero-background {
 
-    padding-bottom:6rem;
-
-}
-
-.hero-grid{
-
-    display:grid;
-
-    grid-template-columns:1.2fr .8fr;
-
-    gap:72px;
-
-    align-items:center;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
 
 }
 
-.hero-left{
+.hero-blur {
 
-    position:relative;
-
-    z-index:2;
-
-}
-
-.hero-right{
-
-    position:relative;
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
 
 }
 
-.hero-title{
+.hero-blur-left {
 
-    font-size:clamp(3.7rem,6vw,5.8rem);
-
-    font-weight:800;
-
-    line-height:1.02;
-
-    letter-spacing:-.05em;
-
-    margin-top:26px;
-
-    margin-bottom:28px;
-
-    color:var(--text-primary);
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(109,93,246,.20), transparent 70%);
+    top: -200px;
+    left: -180px;
 
 }
 
-.hero-title span{
+.hero-blur-right {
 
-    background:var(--gradient-primary);
-
-    background-clip:text;
-
-    -webkit-background-clip:text;
-
-    color:transparent;
-
-    -webkit-text-fill-color:transparent;
-
-}
-
-.hero-description{
-
-    max-width:640px;
-
-    color:var(--text-secondary);
-
-    line-height:2;
-
-    font-size:1.08rem;
-
-    margin-bottom:42px;
-
-}
-
-.hero-actions{
-
-    display:flex;
-
-    gap:18px;
-
-    margin-bottom:40px;
-
-}
-
-.hero-metrics{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:18px;
-
-    margin-top:34px;
-
-}
-
-.hero-tags{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-    margin-top:34px;
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(39,197,255,.14), transparent 70%);
+    top: 60px;
+    right: -160px;
 
 }
 
 
 /* ==========================================================
-   HERO BACKGROUND
+   HERO LOGO
    ========================================================== */
 
-.hero::before{
+/*
+  SLOT LOGO — assets/logo/arrai_logo.png
+  Ukuran yang direkomendasikan: 400 x 400 px
+  Format: PNG dengan background transparan
+  Style: icon/symbol bold, warna putih atau ungu-cyan gradient
 
-    content:"";
+  Logo ditampilkan di sini (hero) dalam ukuran 64px.
+  Logo yang sama juga dipakai di navigation bar (44px).
+  Cukup satu file: assets/logo/arrai_logo.png
+*/
 
-    position:absolute;
+.hero-logo-wrapper {
 
-    width:500px;
-
-    height:500px;
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-
-            circle,
-
-            rgba(109,93,246,.22),
-
-            transparent 70%
-
-        );
-
-    top:-180px;
-
-    left:-160px;
-
-    filter:blur(70px);
-
-    z-index:0;
+    margin-bottom: 20px;
 
 }
 
-.hero::after{
+.hero-logo-wrapper img {
 
-    content:"";
-
-    position:absolute;
-
-    width:450px;
-
-    height:450px;
-
-    border-radius:50%;
-
-    background:
-
-        radial-gradient(
-
-            circle,
-
-            rgba(39,197,255,.16),
-
-            transparent 70%
-
-        );
-
-    right:-160px;
-
-    top:40px;
-
-    filter:blur(80px);
-
-    z-index:0;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 18px !important;
+    border: none !important;
+    object-fit: contain;
 
 }
 
 
 /* ==========================================================
-   HERO PIPELINE
+   HEADLINE
    ========================================================== */
 
-.pipeline-card{
+.hero-title {
 
-    position:relative;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:30px;
-
-    padding:34px;
-
-    backdrop-filter:blur(20px);
+    font-size: clamp(3.2rem, 5.5vw, 5.2rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.05em !important;
+    color: var(--text-primary) !important;
+    margin-top: 20px !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
 
 }
 
-.pipeline-card::before{
+.hero-title-line1 {
 
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        radial-gradient(
-
-            circle at top right,
-
-            rgba(109,93,246,.08),
-
-            transparent 60%
-
-        );
-
-    pointer-events:none;
+    display: block;
+    color: var(--text-primary);
 
 }
 
-.pipeline-header{
+.hero-title-line2 {
 
-    text-align:center;
-
-    margin-bottom:28px;
+    display: block;
 
 }
 
-.pipeline-label{
+.hero-gradient-text {
 
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:8px;
-
-    padding:8px 16px;
-
-    border-radius:999px;
-
-    background:rgba(109,93,246,.10);
-
-    color:var(--primary-light);
-
-    text-transform:uppercase;
-
-    letter-spacing:.12em;
-
-    font-size:.72rem;
-
-    margin-bottom:16px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 
 }
 
-.pipeline-header h3{
 
-    font-size:1.35rem;
+/* ==========================================================
+   DESCRIPTION
+   ========================================================== */
 
-    color:var(--text-primary);
+.hero-description {
 
-    margin-bottom:10px;
-
-}
-
-.pipeline-header p{
-
-    color:var(--text-muted);
-
-    line-height:1.7;
+    max-width: 600px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.85 !important;
+    font-size: 1.06rem !important;
+    margin-bottom: 36px !important;
 
 }
 
-.pipeline-flow{
 
-    display:flex;
+/* ==========================================================
+   PIPELINE CARD (right panel)
+   ========================================================== */
 
-    flex-direction:column;
+.pipeline-card {
 
-    gap:14px;
-
-}
-
-.pipeline-node{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
-    padding:18px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.03);
-
-    border:1px solid rgba(255,255,255,.06);
-
-    transition:.35s;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 28px;
+    padding: 30px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
 }
 
-.pipeline-node:hover{
+.pipeline-card::before {
 
-    transform:translateX(8px);
-
-    border-color:var(--primary);
-
-    box-shadow:var(--shadow-primary);
-
-}
-
-.pipeline-icon{
-
-    width:58px;
-
-    height:58px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:18px;
-
-    background:rgba(109,93,246,.12);
-
-    font-size:28px;
-
-    transition:.35s;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        rgba(109,93,246,.08),
+        transparent 60%
+    );
+    pointer-events: none;
 
 }
 
-.pipeline-node:hover .pipeline-icon{
+.pipeline-header {
 
-    transform:scale(1.08);
-
-}
-
-.pipeline-name{
-
-    font-size:1rem;
-
-    font-weight:700;
-
-    color:var(--text-primary);
+    text-align: center;
+    margin-bottom: 22px;
 
 }
 
-.pipeline-subtitle{
+.pipeline-label {
 
-    margin-top:4px;
-
-    font-size:.84rem;
-
-    color:var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(109,93,246,.10);
+    color: var(--primary-light);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .68rem;
+    font-weight: 800;
+    margin-bottom: 12px;
 
 }
 
-.pipeline-arrow{
+.pipeline-header h3 {
 
-    text-align:center;
+    font-size: 1.15rem !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+    font-weight: 700 !important;
 
-    font-size:22px;
+}
 
-    color:var(--accent);
+.pipeline-header p {
+
+    color: var(--text-muted) !important;
+    line-height: 1.65 !important;
+    font-size: .88rem !important;
+
+}
+
+.pipeline-flow {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.pipeline-node {
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+    cursor: default;
+
+}
+
+.pipeline-node:hover {
+
+    transform: translateX(6px);
+    border-color: rgba(109,93,246,.30);
+    box-shadow: var(--shadow-primary);
+
+}
+
+.pipeline-node-success {
+
+    border-color: rgba(46,204,113,.20) !important;
+    background: rgba(46,204,113,.04) !important;
+
+}
+
+.pipeline-node-success:hover {
+
+    border-color: rgba(46,204,113,.40) !important;
+    box-shadow: 0 0 24px rgba(46,204,113,.12) !important;
+
+}
+
+.pipeline-icon {
+
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(109,93,246,.12);
+    font-size: 22px;
+    flex-shrink: 0;
+    transition: transform .3s;
+
+}
+
+.pipeline-node:hover .pipeline-icon {
+
+    transform: scale(1.1);
+
+}
+
+.pipeline-name {
+
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+
+}
+
+.pipeline-subtitle {
+
+    margin-top: 4px;
+    font-size: .78rem;
+    color: var(--text-muted);
+
+}
+
+.pipeline-arrow {
+
+    text-align: center;
+    font-size: 18px;
+    color: var(--accent);
+    opacity: .5;
+    padding: 2px 0;
+
+}
+
+
+/* ==========================================================
+   TAGS
+   ========================================================== */
+
+.tags {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+.tag {
+
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 14px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 999px;
+    font-size: .76rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: .03em;
+    transition: border-color .2s, color .2s;
+
+}
+
+.tag:hover {
+
+    border-color: rgba(109,93,246,.30);
+    color: var(--primary-light);
+
+}
+
+
+/* ==========================================================
+   HERO DIVIDER & SPACING
+   ========================================================== */
+
+.hero-divider {
+
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(109,93,246,.25),
+        rgba(39,197,255,.15),
+        transparent
+    );
+    margin: 2rem 0;
 
 }

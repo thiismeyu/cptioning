@@ -1,314 +1,230 @@
 """
 components/sections/hero.py
 
-ARRAI Hero Section
+ARRAI Hero Section — Premium redesign dengan slot logo.
+
+LOGO INSTRUCTIONS:
+------------------
+Siapkan 1 file logo untuk navigasi & hero:
+
+  assets/logo/arrai_logo.png
+    → Ukuran: 400 x 400 px (square, transparan background)
+    → Digunakan di: nav logo box + hero logo display
+    → Style: bold icon/symbol, bisa hexagon atau abstract AI shape
+    → Warna: putih atau gradient ungu-cyan di atas transparan
+
+Kalau logo belum ada, komponen ini otomatis fallback ke
+teks "ARRAI" + emoji ⬡ — jadi app tetap jalan tanpa logo.
 """
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import streamlit as st
 
 from components.ui.badge import badge
-from components.ui.button import (
-    primary_button,
-    secondary_button,
-)
+from components.ui.button import primary_button, secondary_button
 from components.ui.metric import metric_row
 from components.ui.tag import tags
 
 
 # ==========================================================
-# CONFIG
+# LOGO PATH
 # ==========================================================
 
-_TITLE = """
-Understanding Images.
-Beyond Pixels.
-"""
+_LOGO_PATH = Path(__file__).resolve().parents[2] / "assets" / "logo" / "arrai_logo.png"
 
-_DESCRIPTION = """
-ARRAI is a premium AI platform capable of generating
-natural multilingual image captions using a fine-tuned
-ClipCap architecture combining CLIP Vision Encoder,
-Transformer Mapper, GPT-2 Language Model,
-and Deep Translator.
-"""
+
+# ==========================================================
+# CONTENT CONFIG
+# ==========================================================
+
+_EYEBROW = "Research Grade AI Platform"
+
+_TITLE_LINE1 = "Understanding Images."
+_TITLE_LINE2 = "Beyond Pixels."
+
+_DESCRIPTION = (
+    "ARRAI generates natural, multilingual image captions using "
+    "a fine-tuned ClipCap architecture — CLIP Vision Encoder, "
+    "Transformer Mapper, GPT-2 Language Model, and Deep Translator "
+    "— in one unified pipeline."
+)
 
 _METRICS = [
-
-    ("Models", "4"),
-
-    ("Languages", "5"),
-
-    ("BLEU", "0.84"),
-
-    ("CIDEr", "1.16"),
-
+    ("Models",     "4"),
+    ("Languages",  "5"),
+    ("BLEU-1",     "18.76"),
+    ("METEOR",     "31.23"),
 ]
 
 _TAGS = [
-
     "CLIP ViT-B/32",
-
     "Transformer",
-
     "GPT-2",
-
     "Deep Translator",
-
+    "Fine-tuned",
     "Research Grade",
-
 ]
 
 _PIPELINE = [
-
-    ("🖼", "Image", "Input"),
-
-    ("🧠", "CLIP", "Vision Encoder"),
-
-    ("⚙", "Mapper", "Transformer"),
-
-    ("💬", "GPT-2", "Language Model"),
-
-    ("🌍", "Translate", "5 Languages"),
-
-    ("✅", "Caption", "Output"),
-
+    ("🖼",  "Image",     "Input"),
+    ("🧠",  "CLIP",      "Vision Encoder"),
+    ("⚙",   "Mapper",    "Transformer"),
+    ("💬",  "GPT-2",     "Language Model"),
+    ("🌍",  "Translate", "5 Languages"),
+    ("✅",  "Caption",   "Output"),
 ]
 
 
 # ==========================================================
-# LEFT
+# LOGO HELPER
+# ==========================================================
+
+def _logo_exists() -> bool:
+    return _LOGO_PATH.exists()
+
+
+# ==========================================================
+# LEFT PANEL
 # ==========================================================
 
 def _render_left() -> None:
 
-    badge(
-        "Research Grade AI Platform"
-    )
+    # ── Logo (jika ada) ───────────────────────────────────
+    if _logo_exists():
+        st.markdown('<div class="hero-logo-wrapper">', unsafe_allow_html=True)
+        st.image(str(_LOGO_PATH), width=64)
+        st.markdown('</div>', unsafe_allow_html=True)
 
+    # ── Eyebrow badge ─────────────────────────────────────
+    badge(_EYEBROW)
+
+    # ── Headline ──────────────────────────────────────────
     st.markdown(
         f"""
 <h1 class="hero-title">
-
-{_TITLE.replace(".", ".<br>")}
-
+  <span class="hero-title-line1">{_TITLE_LINE1}</span>
+  <span class="hero-title-line2 hero-gradient-text">{_TITLE_LINE2}</span>
 </h1>
 """,
         unsafe_allow_html=True,
     )
 
+    # ── Description ───────────────────────────────────────
     st.markdown(
-        f"""
-<p class="hero-description">
-
-{_DESCRIPTION}
-
-</p>
-""",
+        f'<p class="hero-description">{_DESCRIPTION}</p>',
         unsafe_allow_html=True,
     )
 
-    col1, col2 = st.columns(2)
+    # ── CTA buttons ───────────────────────────────────────
+    col1, col2 = st.columns([1, 1], gap="small")
 
     with col1:
-
         primary_button(
-
-            label="Launch Studio",
+            label="🚀 Launch Studio",
             page="pages/2_Caption_Generator.py",
-            key="hero_launch",  
+            key="hero_launch",
         )
 
     with col2:
-
         secondary_button(
-
-            label="Research",
+            label="Research →",
             page="pages/4_About.py",
             key="hero_about",
-
         )
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # ── Metrics row ───────────────────────────────────────
     metric_row(_METRICS)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # ── Tech tags ─────────────────────────────────────────
     tags(_TAGS)
 
+
 # ==========================================================
-# PIPELINE
+# RIGHT PANEL — Pipeline card
 # ==========================================================
 
 def _pipeline_html() -> str:
 
-    html = """
-<div class="pipeline-card">
-
-<div class="pipeline-header">
-
-<div class="pipeline-label">
-
-AI Pipeline
-
-</div>
-
-<h3>
-
-Multilingual Caption Generation
-
-</h3>
-
-<p>
-
-From image understanding to natural language generation.
-
-</p>
-
-</div>
-
-<div class="pipeline-flow">
-
-"""
-
+    nodes_html = ""
     last = len(_PIPELINE) - 1
 
-    for index, (icon, title, subtitle) in enumerate(_PIPELINE):
+    for i, (icon, name, subtitle) in enumerate(_PIPELINE):
 
-        active = " pipeline-node-success" if index == last else ""
+        is_last = i == last
+        node_class = "pipeline-node pipeline-node-success" if is_last else "pipeline-node"
 
-        html += f"""
+        nodes_html += f"""
+<div class="{node_class}">
+  <div class="pipeline-icon">{icon}</div>
+  <div>
+    <div class="pipeline-name">{name}</div>
+    <div class="pipeline-subtitle">{subtitle}</div>
+  </div>
+</div>
+"""
+        if not is_last:
+            nodes_html += '<div class="pipeline-arrow">↓</div>'
 
-<div class="pipeline-node{active}">
+    return f"""
+<div class="pipeline-card">
 
-<div class="pipeline-icon">
+  <div class="pipeline-header">
+    <div class="pipeline-label">AI Pipeline</div>
+    <h3>Multilingual Caption Generation</h3>
+    <p>From image understanding to natural language output.</p>
+  </div>
 
-{icon}
+  <div class="pipeline-flow">
+    {nodes_html}
+  </div>
 
 </div>
-
-<div class="pipeline-name">
-
-{title}
-
-</div>
-
-<div class="pipeline-subtitle">
-
-{subtitle}
-
-</div>
-
-</div>
-
 """
 
-        if index != last:
-
-            html += """
-
-<div class="pipeline-arrow">
-
-↓
-
-</div>
-
-"""
-
-    html += """
-
-</div>
-
-</div>
-
-"""
-
-    return html
-
-
-# ==========================================================
-# RIGHT
-# ==========================================================
 
 def _render_right() -> None:
+    st.markdown(_pipeline_html(), unsafe_allow_html=True)
 
-    st.markdown(
 
-        _pipeline_html(),
-
-        unsafe_allow_html=True,
-
-    )
 # ==========================================================
-# HERO LAYOUT
+# BACKGROUND BLOBS
 # ==========================================================
-
-def _render_content() -> None:
-
-    left, right = st.columns(
-        [1.25, 0.75],
-        gap="large",
-    )
-
-    with left:
-
-        _render_left()
-
-    with right:
-
-        _render_right()
-
 
 def _render_background() -> None:
-
     st.markdown(
         """
-<div class="hero-background">
-
-<div class="hero-blur hero-blur-left"></div>
-
-<div class="hero-blur hero-blur-right"></div>
-
+<div class="hero-background" aria-hidden="true">
+  <div class="hero-blur hero-blur-left"></div>
+  <div class="hero-blur hero-blur-right"></div>
 </div>
 """,
         unsafe_allow_html=True,
     )
 
 
-def _render_divider() -> None:
-
-    st.markdown(
-        """
-<div class="hero-divider"></div>
-""",
-        unsafe_allow_html=True,
-    )
-
-
-def _render_spacing() -> None:
-
-    st.markdown(
-        """
-<div class="hero-spacing"></div>
-""",
-        unsafe_allow_html=True,
-    )
-    
 # ==========================================================
 # PUBLIC
 # ==========================================================
 
 def render_hero() -> None:
-    """
-    Render ARRAI Hero Section.
-    """
+    """Render ARRAI Hero Section."""
 
     _render_background()
 
-    _render_content()
+    left, right = st.columns([1.3, 0.7], gap="large")
 
-    _render_spacing()
+    with left:
+        _render_left()
 
-    _render_divider()
+    with right:
+        _render_right()
+
+    st.markdown('<div class="hero-spacing"></div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)

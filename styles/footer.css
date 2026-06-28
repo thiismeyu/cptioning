@@ -1,133 +1,153 @@
 /* ==========================================================
-   FOOTER
+   FOOTER — styles/footer.css
    ========================================================== */
 
-.footer{
 
-    padding:5rem 0 2rem;
+/* ==========================================================
+   WRAPPER
+   ========================================================== */
 
-    margin-top:6rem;
+.footer {
 
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.footer-grid{
-
-    display:grid;
-
-    grid-template-columns:2fr 1fr 1fr;
-
-    gap:60px;
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,.07);
 
 }
 
-.footer-brand{
 
-    max-width:420px;
+/* ==========================================================
+   TOP — brand block
+   ========================================================== */
 
-}
+.footer-top {
 
-.footer-logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:16px;
-
-    margin-bottom:20px;
+    margin-bottom: 2rem;
 
 }
 
-.footer-logo-icon{
+.footer-brand {
 
-    width:52px;
-
-    height:52px;
-
-    border-radius:18px;
-
-    background:var(--gradient-primary);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    box-shadow:var(--shadow-primary);
+    max-width: 480px;
 
 }
 
-.footer-logo-title{
+.footer-logo-row {
 
-    font-size:1.5rem;
-
-    font-weight:800;
-
-    color:var(--text-primary);
-
-}
-
-.footer-description{
-
-    color:var(--text-secondary);
-
-    line-height:1.9;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
 
 }
 
-.footer-heading{
+.footer-logo-icon {
 
-    font-size:1rem;
-
-    font-weight:700;
-
-    margin-bottom:22px;
-
-    color:var(--text-primary);
-
-}
-
-.footer-link{
-
-    display:block;
-
-    margin-bottom:14px;
-
-    color:var(--text-muted);
-
-    text-decoration:none;
-
-    transition:.30s;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    box-shadow: var(--shadow-primary);
 
 }
 
-.footer-link:hover{
+.footer-logo-name {
 
-    color:var(--primary-light);
-
-    transform:translateX(4px);
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    color: var(--text-primary);
 
 }
 
-.footer-bottom{
+.footer-description {
 
-    margin-top:60px;
+    color: var(--text-muted) !important;
+    line-height: 1.8 !important;
+    font-size: .9rem !important;
+    margin-bottom: 16px !important;
 
-    padding-top:24px;
+}
 
-    border-top:1px solid rgba(255,255,255,.08);
+.footer-badge {
 
-    display:flex;
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(109,93,246,.08);
+    border: 1px solid rgba(109,93,246,.18);
+    border-radius: var(--radius-round);
+    font-size: .72rem;
+    color: var(--primary-light);
+    letter-spacing: .04em;
 
-    justify-content:space-between;
+}
 
-    align-items:center;
 
-    color:var(--text-muted);
+/* ==========================================================
+   NAV LINKS — override buttons jadi ghost text
+   ========================================================== */
 
-    font-size:.85rem;
+.footer-nav-label {
+
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+
+}
+
+.footer .stButton > button {
+
+    height: 36px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--text-muted) !important;
+    font-size: .85rem !important;
+    font-weight: 500 !important;
+    padding: 0 0.75rem !important;
+    border-radius: var(--radius-sm) !important;
+    transition: color .2s, background .2s !important;
+
+}
+
+.footer .stButton > button:hover {
+
+    background: rgba(255,255,255,.04) !important;
+    color: var(--text-primary) !important;
+    transform: none !important;
+    box-shadow: none !important;
+
+}
+
+
+/* ==========================================================
+   BOTTOM
+   ========================================================== */
+
+.footer-bottom {
+
+    margin-top: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(255,255,255,.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .8rem;
+    color: var(--text-muted);
+
+}
+
+.footer-bottom-right {
+
+    color: var(--text-muted);
+    opacity: .6;
 
 }

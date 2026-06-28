@@ -1,139 +1,174 @@
 /* ==========================================================
-   NAVIGATION
+   NAVIGATION — styles/navigation.css
    ========================================================== */
 
-.navigation{
 
-    display:flex;
+/* ==========================================================
+   NAVBAR WRAPPER
+   ========================================================== */
 
-    justify-content:space-between;
+.navbar {
 
-    align-items:center;
-
-    margin-bottom:4rem;
-
-}
-
-.nav-brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-dropdown);
+    background: rgba(9, 12, 16, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 0.75rem 0;
+    margin-bottom: 0;
 
 }
 
-.nav-logo{
+.nav-divider {
 
-    width:52px;
-
-    height:52px;
-
-    border-radius:18px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:var(--gradient-primary);
-
-    box-shadow:var(--shadow-primary);
-
-    flex-shrink:0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(109,93,246,.25),
+        rgba(39,197,255,.15),
+        transparent
+    );
+    margin-bottom: 2.5rem;
 
 }
 
-.nav-logo img{
 
-    width:34px;
+/* ==========================================================
+   BRAND
+   ========================================================== */
 
-    height:34px;
+.nav-brand {
 
-    object-fit:contain;
-
-}
-
-.nav-info{
-
-    display:flex;
-
-    flex-direction:column;
+    display: flex;
+    align-items: center;
+    gap: 14px;
 
 }
 
-.nav-title{
+.nav-logo-box {
 
-    font-size:1.45rem;
-
-    font-weight:800;
-
-    letter-spacing:-.03em;
-
-    color:var(--text-primary);
-
-}
-
-.nav-subtitle{
-
-    margin-top:3px;
-
-    font-size:.82rem;
-
-    color:var(--text-muted);
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 
 }
 
-.nav-menu{
+.nav-logo-icon {
 
-    display:flex;
-
-    gap:16px;
-
-}
-
-.nav-status{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    padding:10px 18px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
+    font-size: 22px;
+    color: white;
+    line-height: 1;
 
 }
 
-.status-dot{
+.nav-info {
 
-    width:9px;
-
-    height:9px;
-
-    border-radius:50%;
-
-    background:#2ECC71;
-
-    box-shadow:0 0 14px #2ECC71;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
 
 }
 
-.status-text{
+.nav-title {
 
-    font-size:.75rem;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    color: var(--text-primary);
+    line-height: 1;
 
-    color:var(--text-muted);
+}
 
-    font-weight:700;
+.nav-subtitle {
 
-    letter-spacing:.08em;
+    font-size: .72rem;
+    color: var(--text-muted);
+    letter-spacing: .02em;
+
+}
+
+
+/* ==========================================================
+   NAV LINKS — override Streamlit button menjadi text link
+   ========================================================== */
+
+/* Semua tombol di dalam .navbar menjadi ghost text */
+.navbar .stButton > button {
+
+    height: 38px !important;
+    padding: 0 1rem !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--text-muted) !important;
+    font-size: .88rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .01em !important;
+    border-radius: var(--radius-sm) !important;
+    transition: color .2s, background .2s !important;
+
+}
+
+.navbar .stButton > button:hover {
+
+    background: rgba(255,255,255,.05) !important;
+    color: var(--text-primary) !important;
+    transform: none !important;
+    box-shadow: none !important;
+
+}
+
+.navbar .stButton > button:active {
+
+    background: rgba(109,93,246,.12) !important;
+    color: var(--primary-light) !important;
+
+}
+
+
+/* ==========================================================
+   STATUS BADGE
+   ========================================================== */
+
+.nav-status {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: var(--radius-round);
+    background: rgba(46,204,113,.08);
+    border: 1px solid rgba(46,204,113,.20);
+
+}
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2ECC71;
+    box-shadow: 0 0 8px #2ECC71;
+    animation: pulse-dot 2s ease-in-out infinite;
+    flex-shrink: 0;
+
+}
+
+.status-text {
+
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    color: #2ECC71;
+    text-transform: uppercase;
 
 }

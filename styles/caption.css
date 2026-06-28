@@ -1,56 +1,141 @@
 /* ==========================================================
+   CAPTION STUDIO — styles/caption.css
+   ========================================================== */
+
+
+/* ==========================================================
+   STUDIO PAGE HEADER
+   ========================================================== */
+
+.studio-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2.5rem 0 1.5rem;
+
+}
+
+.studio-header-left {
+
+    max-width: 640px;
+
+}
+
+.studio-eyebrow {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+
+}
+
+.studio-dot {
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    animation: pulse-dot 2s ease-in-out infinite;
+
+}
+
+.studio-title {
+
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.04em !important;
+    color: var(--text-primary) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 14px !important;
+
+}
+
+.studio-description {
+
+    color: var(--text-secondary) !important;
+    line-height: 1.75 !important;
+    font-size: .97rem !important;
+
+}
+
+.studio-divider {
+
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    margin-bottom: 2rem;
+    opacity: .25;
+
+}
+
+
+/* ==========================================================
+   PANEL LABEL
+   ========================================================== */
+
+.panel-label {
+
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .16em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+/* ==========================================================
    UPLOADER
    ========================================================== */
 
-.upload-card{
+.upload-card {
 
-    background:rgba(255,255,255,.04);
-
-    border:2px dashed rgba(255,255,255,.10);
-
-    border-radius:28px;
-
-    padding:50px;
-
-    text-align:center;
-
-    transition:.35s;
+    background: rgba(255,255,255,.04);
+    border: 2px dashed rgba(255,255,255,.10);
+    border-radius: 28px;
+    padding: 50px;
+    text-align: center;
+    transition: .35s;
 
 }
 
-.upload-card:hover{
+.upload-card:hover {
 
-    border-color:var(--primary);
-
-    box-shadow:var(--shadow-primary);
-
-}
-
-.upload-icon{
-
-    font-size:4rem;
-
-    margin-bottom:20px;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-primary);
 
 }
 
-.upload-title{
+.upload-icon {
 
-    font-size:1.5rem;
-
-    font-weight:700;
-
-    color:var(--text-primary);
+    font-size: 4rem;
+    margin-bottom: 20px;
 
 }
 
-.upload-description{
+.upload-title {
 
-    margin-top:12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
 
-    color:var(--text-secondary);
+}
 
-    line-height:1.8;
+.upload-description {
+
+    margin-top: 12px;
+    color: var(--text-secondary);
+    line-height: 1.8;
 
 }
 
@@ -59,146 +144,191 @@
    IMAGE PREVIEW
    ========================================================== */
 
-.preview-card{
+.preview-card {
 
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    overflow:hidden;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 26px;
+    overflow: hidden;
 
 }
 
-.preview-header{
+.preview-header {
 
-    padding:20px 24px;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    font-weight:700;
-
-    color:var(--text-primary);
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    font-weight: 700;
+    color: var(--text-primary);
 
 }
 
-.preview-body{
+.preview-body {
 
-    padding:26px;
+    padding: 26px;
 
 }
+
 
 /* ==========================================================
-   EMPTY STATE
+   IMAGE INFO BAR
    ========================================================== */
 
-.empty-state{
+.image-info-bar {
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:80px 40px;
+    display: flex;
+    gap: 0;
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 14px;
+    margin-top: 14px;
+    overflow: hidden;
 
 }
 
-.empty-icon{
+.image-info-item {
 
-    width:90px;
-
-    height:90px;
-
-    border-radius:24px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:42px;
-
-    background:rgba(109,93,246,.12);
-
-    margin-bottom:28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 18px;
+    border-right: 1px solid rgba(255,255,255,.07);
 
 }
 
-.empty-title{
+.image-info-item:last-child {
 
-    font-size:1.6rem;
-
-    font-weight:700;
-
-    color:var(--text-primary);
-
-    margin-bottom:16px;
+    border-right: none;
 
 }
 
-.empty-description{
+.image-info-label {
 
-    max-width:600px;
-
-    color:var(--text-secondary);
-
-    line-height:1.9;
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    color: var(--text-muted);
 
 }
+
+.image-info-value {
+
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+
+/* ==========================================================
+   EMPTY STATE (right panel)
+   ========================================================== */
+
+.studio-empty {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    border: 1px dashed rgba(255,255,255,.08);
+    border-radius: 26px;
+    background: rgba(255,255,255,.02);
+
+}
+
+.studio-empty-icon {
+
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    opacity: .5;
+
+}
+
+.studio-empty-title {
+
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+
+}
+
+.studio-empty-description {
+
+    font-size: .88rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 240px;
+
+}
+
+
 /* ==========================================================
    LANGUAGE PANEL
    ========================================================== */
 
-.language-panel{
+.language-panel {
 
-    display:flex;
-
-    flex-direction:column;
-
-    gap:16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
 }
 
-.language-label{
+.language-label {
 
-    font-size:.9rem;
-
-    font-weight:600;
-
-    color:var(--text-primary);
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-primary);
 
 }
 
-.generate-panel{
+.generate-panel {
 
-    margin-top:24px;
+    margin-top: 24px;
 
 }
+
+
+/* ==========================================================
+   GENERATE HINT
+   ========================================================== */
+
+.generate-hint {
+
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: rgba(109,93,246,.06);
+    border: 1px solid rgba(109,93,246,.15);
+    border-radius: 12px;
+    font-size: .82rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+
+}
+
 
 /* ==========================================================
    EXPORT PANEL
    ========================================================== */
 
-.export-panel{
+.export-panel {
 
-    margin-top:32px;
+    margin-top: 32px;
 
 }
 
-.export-grid{
+.export-grid {
 
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:18px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 18px;
 
 }
 
@@ -207,18 +337,63 @@
    LOADING
    ========================================================== */
 
-.loading-panel{
+.loading-panel {
 
-    text-align:center;
-
-    padding:40px;
+    text-align: center;
+    padding: 40px;
 
 }
 
-.loading-icon{
+.loading-icon {
 
-    font-size:52px;
+    font-size: 52px;
+    margin-bottom: 20px;
 
-    margin-bottom:20px;
+}
+
+
+/* ==========================================================
+   EMPTY STATE (generic)
+   ========================================================== */
+
+.empty-state {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+
+}
+
+.empty-icon {
+
+    width: 90px;
+    height: 90px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    background: rgba(109,93,246,.12);
+    margin-bottom: 28px;
+
+}
+
+.empty-title {
+
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+
+}
+
+.empty-description {
+
+    max-width: 600px;
+    color: var(--text-secondary);
+    line-height: 1.9;
 
 }
