@@ -17,18 +17,8 @@ def render_upload_panel():
     )
 
     return st.file_uploader(
-
-        "Upload Image",
-
-        type=[
-
-            "png",
-
-            "jpg",
-
-            "jpeg",
-
-        ],
-
+        "",
+        type=["png", "jpg", "jpeg"],
         label_visibility="collapsed",
+        key="upload_image",
     )

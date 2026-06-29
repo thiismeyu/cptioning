@@ -24,3 +24,4 @@ def start_layout() -> None:
 
 def end_layout() -> None:
     render_footer()
+    

@@ -222,7 +222,10 @@
     text-overflow: ellipsis;
 
 }
-
+/* Sembunyikan icon Material "upload" */
+[data-testid="stIconMaterial"]{
+    display:none !important;
+}
 
 /* ==========================================================
    EMPTY STATE (right panel)

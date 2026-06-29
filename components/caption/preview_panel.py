@@ -22,5 +22,5 @@ def render_preview_panel(
 
     st.image(
         image,
-        use_container_width=True,
+        width=400,
     )
