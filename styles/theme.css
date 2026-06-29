@@ -1,396 +1,339 @@
 /* ============================================================
    ARRAI THEME — styles/theme.css
-   Production-grade dark UI theme.
-   Source of truth: variables.css
    ============================================================ */
 
 
 /* ============================================================
-   1. GLOBAL BASE
+   1. GOOGLE FONT IMPORT
    ============================================================ */
 
-.stApp {
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-    background: var(--background) !important;
-    color: var(--text-primary) !important;
-    font-family: var(--font-family) !important;
 
+/* ============================================================
+   2. GLOBAL BASE
+   ============================================================ */
+
+html, body, .stApp {
+    background-color: #090C10 !important;
+    font-family: 'Inter', 'Segoe UI', sans-serif !important;
+    color: #F5F7FA !important;
 }
 
-/* Subtle grid pattern background */
-.stApp::before {
-
-    content: '' !important;
-    position: fixed !important;
-    inset: 0 !important;
+/* Grid pattern via pseudo — override Streamlit wrapper */
+[data-testid="stAppViewContainer"] {
+    background-color: #090C10 !important;
     background-image:
-        linear-gradient(rgba(109,93,246,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(109,93,246,.025) 1px, transparent 1px) !important;
+        linear-gradient(rgba(109,93,246,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(109,93,246,.03) 1px, transparent 1px) !important;
     background-size: 52px 52px !important;
-    pointer-events: none !important;
-    z-index: 0 !important;
+}
 
+[data-testid="stMain"] {
+    background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+    display: none !important;
 }
 
 
 /* ============================================================
-   2. HIDE STREAMLIT CHROME
+   3. HIDE STREAMLIT CHROME
    ============================================================ */
 
-#MainMenu                          { visibility: hidden !important; }
-footer                             { visibility: hidden !important; }
-header                             { visibility: hidden !important; }
-[data-testid="stToolbar"]          { display: none !important; }
-[data-testid="stDecoration"]       { display: none !important; }
-[data-testid="stStatusWidget"]     { display: none !important; }
-[data-testid="stMainBlockContainer"] > div:first-child { padding-top: 0 !important; }
+#MainMenu                              { visibility: hidden !important; }
+footer                                 { visibility: hidden !important; }
+header                                 { visibility: hidden !important; }
+[data-testid="stToolbar"]             { display: none !important; }
+[data-testid="stDecoration"]          { display: none !important; }
+[data-testid="stStatusWidget"]        { display: none !important; }
+[data-testid="stBottomBlockContainer"]{ display: none !important; }
 
 
 /* ============================================================
-   3. CONTAINER
+   4. CONTAINER
    ============================================================ */
 
 .block-container {
+    max-width: 1400px !important;
+    padding: 0 2rem 5rem !important;
+    animation: fadeUp .5s ease both !important;
+}
 
-    max-width: var(--container-width) !important;
-    padding: 1rem 2rem 5rem !important;
-    position: relative !important;
-    z-index: 1 !important;
-
+/* Remove top padding dari Streamlit default */
+[data-testid="stMainBlockContainer"] {
+    padding-top: 0 !important;
 }
 
 
 /* ============================================================
-   4. GLASSMORPHISM CARDS
+   5. TYPOGRAPHY
    ============================================================ */
 
-div[data-testid="stVerticalBlockBorderWrapper"] {
-
-    background: var(--glass) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
-    padding: var(--card-padding) !important;
-    transition: border-color var(--transition-normal),
-                box-shadow var(--transition-normal),
-                transform var(--transition-normal) !important;
-    position: relative !important;
-    overflow: hidden !important;
-
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -.03em !important;
+    color: #F5F7FA !important;
 }
 
-div[data-testid="stVerticalBlockBorderWrapper"]::before {
-
-    content: '' !important;
-    position: absolute !important;
-    inset: 0 !important;
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,.04) 0%,
-        transparent 55%
-    ) !important;
-    pointer-events: none !important;
-
+p, span, div, label {
+    font-family: 'Inter', sans-serif !important;
 }
 
-div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+p {
+    color: #B7C0CE !important;
+    line-height: 1.75 !important;
+}
 
-    transform: translateY(-3px) !important;
-    border-color: var(--border-light) !important;
-    box-shadow: var(--shadow-md), 0 0 40px rgba(109,93,246,.06) !important;
-
+/* Gradient text utility */
+.gradient-text {
+    background: linear-gradient(135deg, #6D5DF6, #27C5FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
 
 /* ============================================================
-   5. BUTTONS
+   6. BUTTONS — override Streamlit agresif
    ============================================================ */
 
-/* Primary — gradient */
-.stButton > button {
-
-    height: var(--button-height) !important;
-    padding: 0 1.75rem !important;
-    border: none !important;
-    border-radius: var(--radius-sm) !important;
-    font-weight: var(--weight-semibold) !important;
-    font-size: var(--font-sm) !important;
-    background: var(--gradient-primary) !important;
+/* Primary */
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="baseButton-primary"] {
+    background: linear-gradient(135deg, #6D5DF6, #5B8AF5) !important;
     color: white !important;
-    box-shadow: var(--shadow-primary) !important;
-    transition: transform var(--transition-fast),
-                box-shadow var(--transition-fast) !important;
-    cursor: pointer !important;
-    letter-spacing: .015em !important;
-    position: relative !important;
-    overflow: hidden !important;
-
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-size: .9rem !important;
+    height: 44px !important;
+    box-shadow: 0 4px 20px rgba(109,93,246,.35) !important;
+    transition: transform .2s, box-shadow .2s !important;
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: .01em !important;
 }
 
-.stButton > button:hover {
-
+.stButton > button[kind="primary"]:hover,
+.stButton > button[data-testid="baseButton-primary"]:hover {
     transform: translateY(-2px) !important;
-    box-shadow: var(--shadow-primary), 0 0 48px rgba(109,93,246,.22) !important;
-
-}
-
-.stButton > button:active {
-
-    transform: translateY(0) !important;
-
-}
-
-.stButton > button:disabled {
-
-    opacity: .45 !important;
-    cursor: not-allowed !important;
-    transform: none !important;
-    box-shadow: none !important;
-
+    box-shadow: 0 8px 32px rgba(109,93,246,.45) !important;
 }
 
 /* Secondary */
+.stButton > button[kind="secondary"],
 .stButton > button[data-testid="baseButton-secondary"] {
-
-    background: transparent !important;
-    border: 1.5px solid var(--border) !important;
+    background: rgba(255,255,255,.04) !important;
+    color: #B7C0CE !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+    border-radius: 10px !important;
+    font-weight: 500 !important;
+    font-size: .9rem !important;
+    height: 44px !important;
     box-shadow: none !important;
-    color: var(--text-secondary) !important;
-
+    transition: border-color .2s, color .2s, background .2s !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
+.stButton > button[kind="secondary"]:hover,
 .stButton > button[data-testid="baseButton-secondary"]:hover {
+    background: rgba(255,255,255,.07) !important;
+    border-color: rgba(109,93,246,.4) !important;
+    color: #F5F7FA !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
 
-    border-color: var(--primary) !important;
-    color: var(--text-primary) !important;
-    box-shadow: var(--shadow-primary) !important;
+/* Nav & footer buttons — ghost text style */
+.navbar .stButton > button,
+.footer .stButton > button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #8E98A8 !important;
+    font-size: .88rem !important;
+    font-weight: 500 !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+    transition: color .2s, background .2s !important;
+    padding: 0 1rem !important;
+}
 
+.navbar .stButton > button:hover,
+.footer .stButton > button:hover {
+    background: rgba(255,255,255,.05) !important;
+    color: #F5F7FA !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Download button */
 .stDownloadButton > button {
-
-    height: var(--button-height) !important;
-    background: rgba(255,255,255,.05) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-sm) !important;
-    color: var(--text-secondary) !important;
-    font-weight: var(--weight-medium) !important;
+    background: rgba(255,255,255,.04) !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 10px !important;
+    color: #B7C0CE !important;
+    font-weight: 500 !important;
+    height: 44px !important;
     box-shadow: none !important;
-    transition: border-color .2s, color .2s, background .2s !important;
-
+    transition: border-color .2s, color .2s !important;
 }
 
 .stDownloadButton > button:hover {
-
-    background: rgba(255,255,255,.08) !important;
-    border-color: var(--border-light) !important;
-    color: var(--text-primary) !important;
+    background: rgba(255,255,255,.07) !important;
+    border-color: rgba(255,255,255,.20) !important;
+    color: #F5F7FA !important;
     transform: none !important;
     box-shadow: none !important;
-
 }
 
 
 /* ============================================================
-   6. FORM ELEMENTS
+   7. FORM ELEMENTS
    ============================================================ */
 
 /* Selectbox */
 div[data-baseweb="select"] > div {
-
     background: rgba(255,255,255,.04) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-sm) !important;
-    transition: border-color .2s !important;
-
-}
-
-div[data-baseweb="select"] > div:hover {
-
-    border-color: var(--border-light) !important;
-
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 10px !important;
+    color: #F5F7FA !important;
 }
 
 div[data-baseweb="select"] > div:focus-within {
-
-    border-color: var(--primary) !important;
-    box-shadow: 0 0 0 3px rgba(109,93,246,.10) !important;
-
+    border-color: #6D5DF6 !important;
+    box-shadow: 0 0 0 3px rgba(109,93,246,.12) !important;
 }
 
 /* Dropdown popover */
-div[data-baseweb="popover"] {
-
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-sm) !important;
-
+div[data-baseweb="popover"],
+ul[role="listbox"] {
+    background: #181F2A !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    border-radius: 12px !important;
 }
 
-/* Option hover */
 li[role="option"]:hover {
-
-    background: var(--glass-hover) !important;
-
+    background: rgba(109,93,246,.12) !important;
 }
 
-/* File Uploader */
-div[data-testid="stFileUploader"] {
-
-    border: 2px dashed var(--border) !important;
-    border-radius: var(--radius-lg) !important;
+/* File uploader */
+[data-testid="stFileUploader"] {
+    border: 2px dashed rgba(255,255,255,.10) !important;
+    border-radius: 20px !important;
     padding: 2rem !important;
     background: rgba(255,255,255,.02) !important;
     transition: border-color .25s, background .25s !important;
-    cursor: pointer !important;
-
 }
 
-div[data-testid="stFileUploader"]:hover {
-
-    border-color: var(--primary) !important;
+[data-testid="stFileUploader"]:hover {
+    border-color: #6D5DF6 !important;
     background: rgba(109,93,246,.04) !important;
-
 }
 
-div[data-testid="stFileUploader"] > div {
-
+[data-testid="stFileUploaderDropzone"] {
     background: transparent !important;
-
+    border: none !important;
 }
 
-/* Text label above selectbox / uploader */
+/* Widget labels */
+[data-testid="stWidgetLabel"] p,
 label[data-testid="stWidgetLabel"] p {
-
-    color: var(--text-muted) !important;
-    font-size: .8rem !important;
-    font-weight: 600 !important;
-    letter-spacing: .04em !important;
+    color: #8E98A8 !important;
+    font-size: .75rem !important;
+    font-weight: 700 !important;
+    letter-spacing: .08em !important;
     text-transform: uppercase !important;
-
 }
 
 
 /* ============================================================
-   7. METRICS
+   8. METRICS
    ============================================================ */
 
-div[data-testid="metric-container"] {
-
-    background: var(--glass) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-md) !important;
+[data-testid="metric-container"] {
+    background: rgba(255,255,255,.03) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    border-radius: 16px !important;
     padding: 1.25rem 1.5rem !important;
-    transition: transform .2s, border-color .2s !important;
-
 }
 
-div[data-testid="metric-container"]:hover {
-
-    transform: translateY(-2px) !important;
-    border-color: var(--border-light) !important;
-
+[data-testid="metric-container"]:hover {
+    border-color: rgba(255,255,255,.12) !important;
 }
 
-div[data-testid="metric-container"] label {
-
-    color: var(--text-muted) !important;
-    font-size: .7rem !important;
+[data-testid="stMetricLabel"] p {
+    color: #8E98A8 !important;
+    font-size: .72rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: .08em !important;
-
 }
 
-div[data-testid="stMetricValue"] {
-
-    color: var(--text-primary) !important;
+[data-testid="stMetricValue"] {
+    color: #F5F7FA !important;
     font-weight: 800 !important;
+    font-size: 1.8rem !important;
+}
 
+/* Metric label yang berwarna (BLEU-1, METEOR) */
+[data-testid="stMetricLabel"] [data-testid="stMarkdownContainer"] p {
+    background: linear-gradient(135deg, #6D5DF6, #27C5FF) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 800 !important;
 }
 
 
 /* ============================================================
-   8. ALERTS
+   9. ALERTS & EXPANDER
    ============================================================ */
 
-.element-container .stAlert {
-
-    border-radius: var(--radius-md) !important;
-    border-left: 3px solid !important;
-    background: var(--glass) !important;
-    backdrop-filter: blur(8px) !important;
-
+[data-testid="stAlertContainer"] {
+    background: rgba(255,255,255,.04) !important;
+    border-radius: 12px !important;
+    border-left: 3px solid #6D5DF6 !important;
 }
-
-div[data-testid="stAlertContainer"][data-baseweb="notification"] {
-
-    background: var(--glass) !important;
-
-}
-
-
-/* ============================================================
-   9. TABS
-   ============================================================ */
-
-button[data-baseweb="tab"] {
-
-    background: transparent !important;
-    color: var(--text-muted) !important;
-    border-radius: var(--radius-xs) !important;
-    transition: color .2s !important;
-
-}
-
-button[data-baseweb="tab"]:hover {
-
-    color: var(--text-primary) !important;
-
-}
-
-button[data-baseweb="tab"][aria-selected="true"] {
-
-    color: var(--text-primary) !important;
-    font-weight: 700 !important;
-
-}
-
-div[data-testid="stTabs"] [role="tablist"] {
-
-    border-bottom: 1px solid var(--border) !important;
-    gap: 4px !important;
-
-}
-
-
-/* ============================================================
-   10. EXPANDER
-   ============================================================ */
 
 details {
-
-    background: var(--glass) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-md) !important;
-
+    background: rgba(255,255,255,.03) !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: 14px !important;
 }
 
 details summary {
-
-    font-weight: var(--weight-semibold) !important;
-    color: var(--text-primary) !important;
-    padding: 0.75rem 1rem !important;
-    cursor: pointer !important;
-
+    font-weight: 600 !important;
+    color: #F5F7FA !important;
+    padding: .75rem 1rem !important;
 }
 
 details[open] {
+    border-color: rgba(255,255,255,.12) !important;
+}
 
-    border-color: var(--border-light) !important;
 
+/* ============================================================
+   10. TABS
+   ============================================================ */
+
+button[data-baseweb="tab"] {
+    background: transparent !important;
+    color: #8E98A8 !important;
+    border-radius: 8px !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #F5F7FA !important;
+    font-weight: 700 !important;
+}
+
+[role="tablist"] {
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+    gap: 4px !important;
 }
 
 
@@ -399,31 +342,16 @@ details[open] {
    ============================================================ */
 
 hr {
-
     margin: 2rem 0 !important;
     border: none !important;
     height: 1px !important;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--border),
-        transparent
-    ) !important;
-
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent) !important;
 }
 
-/* section-divider custom class */
 .section-divider {
-
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--border),
-        transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.07), transparent);
     margin: 3rem 0;
-
 }
 
 
@@ -432,9 +360,11 @@ hr {
    ============================================================ */
 
 img {
+    border-radius: 14px !important;
+}
 
-    border-radius: var(--radius-md) !important;
-
+[data-testid="stImage"] img {
+    border-radius: 14px !important;
 }
 
 
@@ -442,145 +372,89 @@ img {
    13. CODE BLOCKS
    ============================================================ */
 
-pre, code {
-
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-sm) !important;
-    color: var(--text-secondary) !important;
-
-}
-
-pre {
-
-    padding: 1.25rem !important;
-
-}
-
-/* st.code box */
-div[data-testid="stCode"] pre {
-
+[data-testid="stCode"] pre,
+[data-testid="stCode"] code {
     background: rgba(255,255,255,.03) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-md) !important;
-    color: var(--text-secondary) !important;
-    font-size: .92rem !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: 12px !important;
+    color: #B7C0CE !important;
+    font-size: .9rem !important;
     line-height: 1.7 !important;
-    padding: 1.25rem 1.5rem !important;
-
 }
 
 
 /* ============================================================
-   14. SCROLLBAR
+   14. SPINNER
    ============================================================ */
 
-::-webkit-scrollbar {
-
-    width: 8px;
-    height: 8px;
-
+[data-testid="stSpinner"] p {
+    color: #8E98A8 !important;
 }
 
-::-webkit-scrollbar-track {
 
-    background: var(--background);
+/* ============================================================
+   15. SCROLLBAR
+   ============================================================ */
 
-}
-
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #090C10; }
 ::-webkit-scrollbar-thumb {
-
-    background: var(--background-tertiary);
-    border-radius: var(--radius-round);
-
+    background: #161B24;
+    border-radius: 999px;
 }
+::-webkit-scrollbar-thumb:hover { background: #6D5DF6; }
 
-::-webkit-scrollbar-thumb:hover {
-
-    background: rgba(109,93,246,.5);
-
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #161B24 #090C10;
 }
 
 
 /* ============================================================
-   15. SELECTION
+   16. SELECTION
    ============================================================ */
 
-::selection {
-
-    background: var(--primary);
-    color: white;
-
-}
+::selection      { background: #6D5DF6; color: white; }
+::-moz-selection { background: #6D5DF6; color: white; }
 
 
 /* ============================================================
-   16. TYPOGRAPHY
-   ============================================================ */
-
-h1, h2, h3, h4, h5, h6 {
-
-    font-weight: var(--weight-bold) !important;
-    letter-spacing: -.025em !important;
-    color: var(--text-primary) !important;
-
-}
-
-h1 { font-size: var(--hero-title-size) !important; line-height: 1.08 !important; }
-h2 { font-size: var(--font-3xl) !important;        line-height: 1.18 !important; }
-h3 { font-size: var(--font-2xl) !important;        line-height: 1.25 !important; }
-h4 { font-size: var(--font-xl) !important;         line-height: 1.35 !important; }
-
-p {
-
-    color: var(--text-secondary) !important;
-    line-height: 1.75 !important;
-
-}
-
-
-/* ============================================================
-   17. GRADIENT TEXT UTILITY
-   ============================================================ */
-
-.gradient-text {
-
-    background: var(--gradient-primary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-
-}
-
-
-/* ============================================================
-   18. SECTION UTILITIES
+   17. SECTION UTILITIES
    ============================================================ */
 
 .section-title {
-
     font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
     font-weight: 800 !important;
     letter-spacing: -.035em !important;
-    color: var(--text-primary) !important;
-    margin-bottom: 12px !important;
-
+    color: #F5F7FA !important;
+    margin-bottom: 10px !important;
+    line-height: 1.15 !important;
 }
 
 .section-description {
-
-    color: var(--text-secondary) !important;
+    color: #B7C0CE !important;
     line-height: 1.8 !important;
-    font-size: 1.02rem !important;
+    font-size: 1rem !important;
     max-width: 680px !important;
     margin-bottom: 1rem !important;
-
 }
 
-.hero-spacing {
+.hero-spacing { height: 3rem; }
 
-    height: 3rem;
 
+/* ============================================================
+   18. VERTICAL BLOCK BORDER (Streamlit "with border" containers)
+   ============================================================ */
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background: rgba(255,255,255,.03) !important;
+    border: 1px solid rgba(255,255,255,.08) !important;
+    border-radius: 20px !important;
+    transition: border-color .25s, box-shadow .25s !important;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    border-color: rgba(255,255,255,.12) !important;
 }
 
 
@@ -589,222 +463,200 @@ p {
    ============================================================ */
 
 .badge {
-
     display: inline-flex !important;
     align-items: center !important;
     gap: 8px !important;
-    padding: .35rem 1.1rem !important;
+    padding: .35rem 1rem !important;
     background: rgba(255,255,255,.05) !important;
     border: 1px solid rgba(255,255,255,.10) !important;
-    border-radius: var(--radius-round) !important;
+    border-radius: 999px !important;
     font-size: .72rem !important;
     font-weight: 700 !important;
-    color: var(--text-secondary) !important;
+    color: #8E98A8 !important;
     letter-spacing: .08em !important;
     text-transform: uppercase !important;
-
+    margin-bottom: 1rem !important;
 }
 
 .badge-dot {
-
     display: inline-block !important;
     width: 7px !important;
     height: 7px !important;
     border-radius: 50% !important;
-    background: var(--success) !important;
-    box-shadow: 0 0 8px var(--success) !important;
+    background: #2ECC71 !important;
+    box-shadow: 0 0 8px #2ECC71 !important;
     animation: pulse-dot 2s ease-in-out infinite !important;
     flex-shrink: 0 !important;
-
-}
-
-@keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: .5; transform: scale(.8); }
 }
 
 
 /* ============================================================
-   20. FEATURE CARDS
+   20. TAGS — FIX: gap antar tag
+   ============================================================ */
+
+.tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-top: .5rem !important;
+}
+
+.tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 5px 13px !important;
+    background: rgba(255,255,255,.04) !important;
+    border: 1px solid rgba(255,255,255,.09) !important;
+    border-radius: 999px !important;
+    font-size: .76rem !important;
+    font-weight: 600 !important;
+    color: #8E98A8 !important;
+    letter-spacing: .02em !important;
+    white-space: nowrap !important;
+    transition: border-color .2s, color .2s !important;
+}
+
+.tag:hover {
+    border-color: rgba(109,93,246,.35) !important;
+    color: #8E81FF !important;
+}
+
+
+/* ============================================================
+   21. FEATURE CARDS
    ============================================================ */
 
 .feature-card {
-
-    text-align: center !important;
     padding: 1.75rem !important;
     background: rgba(255,255,255,.03) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    border-radius: 20px !important;
+    text-align: center !important;
+    height: 100% !important;
     transition: transform .25s, border-color .25s, box-shadow .25s !important;
-
 }
 
 .feature-card:hover {
-
     transform: translateY(-6px) !important;
-    border-color: rgba(109,93,246,.3) !important;
-    box-shadow: var(--shadow-primary) !important;
-
+    border-color: rgba(109,93,246,.30) !important;
+    box-shadow: 0 10px 30px rgba(109,93,246,.15) !important;
 }
 
 .feature-icon {
-
     font-size: 2.4rem !important;
     margin-bottom: 1rem !important;
     display: block !important;
-
 }
 
 .feature-title {
-
-    font-size: 1.05rem !important;
+    font-size: 1rem !important;
     font-weight: 700 !important;
-    color: var(--text-primary) !important;
+    color: #F5F7FA !important;
     margin-bottom: .5rem !important;
-
 }
 
 .feature-description {
-
-    font-size: .88rem !important;
-    color: var(--text-secondary) !important;
+    font-size: .87rem !important;
+    color: #8E98A8 !important;
     line-height: 1.75 !important;
-
 }
 
 
 /* ============================================================
-   21. PIPELINE STAGE (home page)
+   22. PIPELINE STAGE
    ============================================================ */
 
 .pipeline-stage {
-
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: rgba(255,255,255,.03);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    transition: transform .25s, border-color .25s;
-
+    text-align: center !important;
+    padding: 1.75rem 1.25rem !important;
+    background: rgba(255,255,255,.03) !important;
+    border: 1px solid rgba(255,255,255,.07) !important;
+    border-radius: 20px !important;
+    transition: transform .25s, border-color .25s !important;
+    height: 100% !important;
 }
 
 .pipeline-stage:hover {
-
-    transform: translateY(-5px);
-    border-color: rgba(109,93,246,.3);
-
+    transform: translateY(-5px) !important;
+    border-color: rgba(109,93,246,.30) !important;
 }
 
 .pipeline-step {
-
-    display: inline-block;
-    font-size: .68rem;
-    font-weight: 800;
-    letter-spacing: .14em;
-    color: var(--primary-light);
-    text-transform: uppercase;
-    margin-bottom: 14px;
-
+    display: inline-block !important;
+    font-size: .68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .14em !important;
+    color: #8E81FF !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
 }
 
 .pipeline-stage-icon {
-
-    font-size: 2.2rem;
-    margin-bottom: 14px;
-
+    font-size: 2rem !important;
+    margin-bottom: 12px !important;
+    display: block !important;
 }
 
 .pipeline-stage-title {
-
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-
+    font-size: .95rem !important;
+    font-weight: 700 !important;
+    color: #F5F7FA !important;
+    margin-bottom: 6px !important;
 }
 
 .pipeline-stage-description {
-
-    font-size: .85rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-
+    font-size: .83rem !important;
+    color: #8E98A8 !important;
+    line-height: 1.65 !important;
 }
 
 .pipeline-connector {
-
-    text-align: center;
-    font-size: 1.6rem;
-    color: var(--accent);
-    padding: .5rem 0;
-    opacity: .6;
-
+    text-align: center !important;
+    font-size: 1.4rem !important;
+    color: #27C5FF !important;
+    padding: .5rem 0 !important;
+    opacity: .5 !important;
 }
 
 
 /* ============================================================
-   22. CTA CARD
+   23. CTA CARD
    ============================================================ */
 
 .cta-card {
-
-    background: linear-gradient(
-        135deg,
-        rgba(109,93,246,.10),
-        rgba(39,197,255,.06)
-    );
-    border: 1px solid rgba(109,93,246,.20);
-    border-radius: var(--radius-xl);
-    padding: 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-
+    background: linear-gradient(135deg, rgba(109,93,246,.10), rgba(39,197,255,.06)) !important;
+    border: 1px solid rgba(109,93,246,.20) !important;
+    border-radius: 28px !important;
+    padding: 3rem !important;
+    text-align: center !important;
+    margin-bottom: 1.5rem !important;
 }
 
 .cta-badge {
-
-    display: inline-block;
-    padding: .3rem 1rem;
-    background: rgba(109,93,246,.15);
-    border: 1px solid rgba(109,93,246,.25);
-    border-radius: var(--radius-round);
-    font-size: .7rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-    color: var(--primary-light);
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-
+    display: inline-block !important;
+    padding: .3rem 1rem !important;
+    background: rgba(109,93,246,.12) !important;
+    border: 1px solid rgba(109,93,246,.25) !important;
+    border-radius: 999px !important;
+    font-size: .68rem !important;
+    font-weight: 800 !important;
+    letter-spacing: .12em !important;
+    color: #8E81FF !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1.2rem !important;
 }
 
 .cta-title {
-
-    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+    font-size: clamp(1.8rem, 3vw, 2.4rem) !important;
     font-weight: 800 !important;
-    color: var(--text-primary) !important;
+    color: #F5F7FA !important;
     margin-bottom: 1rem !important;
-
+    letter-spacing: -.03em !important;
 }
 
 .cta-description {
-
-    color: var(--text-secondary) !important;
-    max-width: 560px !important;
+    color: #B7C0CE !important;
+    max-width: 540px !important;
     margin: 0 auto !important;
     line-height: 1.8 !important;
-
-}
-
-
-/* ============================================================
-   23. SIDEBAR (jika dipakai)
-   ============================================================ */
-
-section[data-testid="stSidebar"] {
-
-    background: var(--background-secondary) !important;
-    border-right: 1px solid var(--border) !important;
-
 }
