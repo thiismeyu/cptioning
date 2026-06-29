@@ -287,9 +287,8 @@
 
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1.5px;
     border-radius: inherit;
-    padding: 1.5px;
     background: linear-gradient(
         135deg,
         #6D5DF6,
@@ -298,11 +297,7 @@
     );
     background-size: 200% 200%;
     animation: gradientShift 4s ease infinite;
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
+    z-index: -1;
     pointer-events: none;
 
 }
