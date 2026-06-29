@@ -305,3 +305,376 @@
     line-height:1.75;
 
 }
+
+/* ==========================================================
+   ABOUT HERO (overview.py)
+   ========================================================== */
+
+.about-hero-title {
+
+    font-size: clamp(2.8rem, 4.5vw, 4rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.05em !important;
+    color: var(--text-primary) !important;
+    line-height: 1.06 !important;
+    margin: 16px 0 20px !important;
+
+}
+
+.about-hero-subtitle-inline {
+
+    display: block;
+    font-size: 60%;
+    font-weight: 500;
+    letter-spacing: -.01em;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 6px;
+
+}
+
+.about-hero-desc {
+
+    color: var(--text-secondary) !important;
+    line-height: 1.85 !important;
+    font-size: 1.02rem !important;
+    max-width: 580px !important;
+    margin-bottom: 2rem !important;
+
+}
+
+/* Highlight rows */
+.about-highlight-row {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+}
+
+.about-highlight-row:last-child { border-bottom: none; }
+
+.about-highlight-icon {
+
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(109,93,246,.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+
+}
+
+.about-highlight-body { flex: 1; }
+
+.about-highlight-title {
+
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: .95rem;
+
+}
+
+.about-highlight-text {
+
+    color: var(--text-secondary);
+    font-size: .87rem;
+    line-height: 1.7;
+
+}
+
+/* Logo wrapper (about page) */
+.about-logo-wrapper {
+
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+
+}
+
+.about-logo-wrapper img {
+
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 36px !important;
+    object-fit: contain;
+
+}
+
+/* Stats grid */
+.about-stats-grid {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+
+}
+
+.about-stat-card {
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+
+}
+
+.about-stat-card:hover {
+
+    transform: translateY(-5px);
+    border-color: rgba(109,93,246,.3);
+    box-shadow: var(--shadow-primary);
+
+}
+
+.about-stat-value {
+
+    font-size: 2.1rem;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 8px;
+
+}
+
+.about-stat-label {
+
+    font-size: .75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+
+}
+
+
+/* ==========================================================
+   AI PIPELINE ROWS (information.py)
+   ========================================================== */
+
+.info-pipeline-row {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.06);
+    margin-bottom: 10px;
+    transition: border-color .2s, transform .2s;
+
+}
+
+.info-pipeline-row:hover {
+
+    border-color: rgba(109,93,246,.25);
+    transform: translateX(5px);
+
+}
+
+.info-pipeline-icon {
+
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(109,93,246,.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+
+}
+
+.info-pipeline-body { flex: 1; }
+
+.info-pipeline-name {
+
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: .95rem;
+    margin-bottom: 3px;
+
+}
+
+.info-pipeline-desc {
+
+    font-size: .83rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+   TECH STACK (information.py)
+   ========================================================== */
+
+.tech-row {
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,.05);
+    margin-bottom: 8px;
+    transition: border-color .2s, background .2s;
+
+}
+
+.tech-row:hover {
+
+    background: rgba(255,255,255,.03);
+    border-color: rgba(255,255,255,.09);
+
+}
+
+.tech-icon {
+
+    font-size: 20px;
+    width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+
+}
+
+.tech-body {
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+
+}
+
+.tech-name {
+
+    font-weight: 700;
+    font-size: .9rem;
+    color: var(--text-primary);
+
+}
+
+.tech-role {
+
+    font-size: .78rem;
+    color: var(--text-muted);
+
+}
+
+
+/* ==========================================================
+   PROJECT INFO KV (information.py)
+   ========================================================== */
+
+.info-kv-row {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+
+}
+
+.info-kv-row:last-child { border-bottom: none; }
+
+.info-kv-label {
+
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-muted);
+
+}
+
+.info-kv-value {
+
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+
+}
+
+
+/* ==========================================================
+   ROADMAP (roadmap.py)
+   ========================================================== */
+
+.roadmap-row {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.06);
+    background: rgba(255,255,255,.02);
+    margin-bottom: 12px;
+    transition: border-color .25s;
+
+}
+
+.roadmap-done    { border-color: rgba(46,204,113,.12); }
+.roadmap-active  { border-color: rgba(109,93,246,.18); background: rgba(109,93,246,.04); }
+.roadmap-planned { border-color: rgba(255,255,255,.06); }
+
+.roadmap-icon {
+
+    font-size: 22px;
+    width: 40px;
+    flex-shrink: 0;
+    text-align: center;
+    padding-top: 2px;
+
+}
+
+.roadmap-body { flex: 1; }
+
+.roadmap-title {
+
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: .95rem;
+    margin-bottom: 4px;
+
+}
+
+.roadmap-desc {
+
+    font-size: .84rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+
+}
+
+.roadmap-badge {
+
+    font-size: .65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    align-self: flex-start;
+
+}
+
+.roadmap-badge-done    { background: rgba(46,204,113,.12);  color: #2ECC71; border: 1px solid rgba(46,204,113,.25); }
+.roadmap-badge-active  { background: rgba(109,93,246,.15);  color: var(--primary-light); border: 1px solid rgba(109,93,246,.30); }
+.roadmap-badge-planned { background: rgba(255,255,255,.05); color: var(--text-muted); border: 1px solid rgba(255,255,255,.09); }

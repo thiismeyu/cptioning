@@ -1,579 +1,599 @@
 /* ==========================================================
-   MODEL INFO
+   CARDS & EVALUATION — styles/cards.css
    ========================================================== */
 
-.model-card{
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:24px;
-
-    padding:28px;
-
-}
-
-.model-title{
-
-    font-size:1.05rem;
-
-    font-weight:700;
-
-    margin-bottom:22px;
-
-    color:var(--text-primary);
-
-}
-
-.model-item{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:14px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-}
-
-.model-item:last-child{
-
-    border:none;
-
-}
-
-.model-label{
-
-    color:var(--text-muted);
-
-}
-
-.model-value{
-
-    color:var(--text-primary);
-
-    font-weight:600;
-
-}
-/* ==========================================================
-   GLASS
-   ========================================================== */
-
-.glass{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    transition:.35s;
-
-}
-
-.glass::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-    radial-gradient(
-
-        circle at top right,
-
-        rgba(109,93,246,.08),
-
-        transparent 55%
-
-    );
-
-    pointer-events:none;
-
-}
-
-.glass:hover{
-
-    transform:translateY(-6px);
-
-    border-color:rgba(109,93,246,.35);
-
-    box-shadow:var(--shadow-primary);
-
-}
-/* ==========================================================
-   RESULT CARD
-   ========================================================== */
-
-.result-card{
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    padding:30px;
-
-    transition:.30s;
-
-}
-
-.result-card:hover{
-
-    border-color:var(--primary);
-
-}
-
-.result-title{
-
-    font-size:1rem;
-
-    font-weight:700;
-
-    margin-bottom:18px;
-
-    color:var(--text-primary);
-
-}
-
-.result-text{
-
-    color:var(--text-secondary);
-
-    line-height:1.9;
-
-    font-size:1rem;
-
-}
-
-.result-header{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    margin-bottom:18px;
-
-}
-
-.result-badge{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:14px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(109,93,246,.12);
-
-    font-size:20px;
-
-    flex-shrink:0;
-
-}
 
 /* ==========================================================
-   TECHNOLOGY
+   GLASS CARD
    ========================================================== */
 
-.technology{
+.glass {
 
-    padding:6rem 0;
-
-}
-
-.technology-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:26px;
-
-    margin-top:48px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--card-padding);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition-normal),
+                box-shadow var(--transition-normal),
+                transform var(--transition-normal);
 
 }
 
-.technology-card{
+.glass::before {
 
-    position:relative;
-
-    overflow:hidden;
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    padding:30px;
-
-    text-align:center;
-
-    transition:.35s;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,.04), transparent 55%);
+    pointer-events: none;
 
 }
 
-.technology-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:rgba(109,93,246,.35);
-
-    box-shadow:var(--shadow-primary);
-
-}
-
-.technology-icon{
-
-    width:76px;
-
-    height:76px;
-
-    margin:auto;
-
-    margin-bottom:22px;
-
-    border-radius:22px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-size:36px;
-
-    background:rgba(109,93,246,.12);
-
-    transition:.35s;
-
-}
-
-.technology-card:hover .technology-icon{
-
-    transform:scale(1.12);
-
-}
-
-.technology-name{
-
-    font-size:1.18rem;
-
-    font-weight:700;
-
-    color:var(--text-primary);
-
-}
-
-.technology-subtitle{
-
-    margin-top:8px;
-
-    color:var(--primary-light);
-
-    font-size:.88rem;
-
-    margin-bottom:18px;
-
-}
-
-.technology-description{
-
-    color:var(--text-secondary);
-
-    line-height:1.75;
-
-}
-/* ==========================================================
-   SCORE CARD
-   ========================================================== */
-
-.metric-name{
-
-    color:var(--text-muted);
-
-    font-size:.9rem;
-
-    margin-bottom:10px;
-
-    text-transform:uppercase;
-
-    letter-spacing:.08em;
-
-}
-
-.metric-score{
-
-    font-size:2.4rem;
-
-    font-weight:800;
-
-    color:var(--text-primary);
-
-}
-
-/* ==========================================================
-   EVALUATION
-   ========================================================== */
-
-.metric-grid{
-
-    display:grid;
-
-    gap:18px;
-
-}
-
-.metric-description{
-
-    color:var(--text-secondary);
-
-    line-height:1.8;
-
-}
-
-.metric-badge{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:8px 16px;
-
-    border-radius:999px;
-
-    background:rgba(109,93,246,.10);
-
-    color:var(--primary-light);
-
-    font-size:.75rem;
-
-    font-weight:700;
-
-}
-
-/* ==========================================================
-   COMPARISON TABLE
-   ========================================================== */
-
-.comparison-card{
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    overflow:hidden;
-
-}
-
-.comparison-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-}
-
-.comparison-table thead{
-
-    background:rgba(255,255,255,.05);
-
-}
-
-.comparison-table th{
-
-    padding:18px;
-
-    text-align:left;
-
-    color:var(--text-primary);
-
-    font-weight:700;
-
-}
-
-.comparison-table td{
-
-    padding:18px;
-
-    border-top:1px solid rgba(255,255,255,.06);
-
-    color:var(--text-secondary);
-
-}
-
-.comparison-table tr:hover{
-
-    background:rgba(255,255,255,.03);
-
-}
-
-.comparison-status{
-
-    display:inline-block;
-
-    padding:6px 14px;
-
-    border-radius:999px;
-
-    background:rgba(109,93,246,.12);
-
-    color:var(--primary-light);
-
-    font-size:.75rem;
-
-    font-weight:700;
-
-}
-/* ==========================================================
-   DATASET PANEL
-   ========================================================== */
-
-.dataset-grid{
-
-    display:grid;
-
-    gap:18px;
-
-}
-
-.dataset-item{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    padding:16px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.06);
-
-}
-
-.dataset-item:last-child{
-
-    border:none;
+.glass:hover {
+
+    transform: translateY(-3px);
+    border-color: var(--border-light);
+    box-shadow: var(--shadow-md);
 
 }
 
 
 /* ==========================================================
-   CONCLUSION
+   MODEL / KV CARD
    ========================================================== */
 
-.conclusion-card{
+.model-card {
 
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:26px;
-
-    padding:34px;
-
-}
-/* ==========================================================
-   RESULT CARD — accent variant
-   ========================================================== */
-
-.result-card-accent{
-
-    border-color:rgba(109,93,246,.40);
-
-    box-shadow:0 0 28px rgba(109,93,246,.08);
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
 
 }
 
-.result-card-accent:hover{
+.model-item {
 
-    border-color:var(--primary);
-
-    box-shadow:var(--shadow-primary);
-
-}
-
-/* ==========================================================
-   RESULT HEADER TEXT
-   ========================================================== */
-
-.result-header-text{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 22px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+    gap: 16px;
 
 }
 
-.result-label{
+.model-item:last-child { border-bottom: none; }
 
-    font-size:.82rem;
+.model-label {
 
-    font-weight:700;
-
-    color:var(--text-muted);
-
-    text-transform:uppercase;
-
-    letter-spacing:.10em;
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-muted);
 
 }
+
+.model-title {
+
+    font-size: .95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+
+}
+
+.model-value {
+
+    font-size: .9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+
+}
+
 
 /* ==========================================================
-   RESULT COPY HINT
+   SCORE CARDS (evaluation/score_panel.py)
    ========================================================== */
 
-.result-copy-hint{
+.score-card {
 
-    font-size:.78rem;
-
-    color:var(--text-muted);
-
-    margin-bottom:8px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 22px;
+    padding: 24px 18px;
+    text-align: center;
+    transition: transform .25s, border-color .25s, box-shadow .25s;
 
 }
 
-.result-copy-box{
+.score-card:hover {
 
-    background:rgba(255,255,255,.04);
+    transform: translateY(-6px);
 
-    border:1px solid rgba(255,255,255,.08);
+}
 
-    border-radius:14px;
+.score-card-primary:hover {
 
-    padding:18px 22px;
+    border-color: rgba(109,93,246,.35);
+    box-shadow: var(--shadow-primary);
 
-    color:var(--text-secondary);
+}
 
-    line-height:1.85;
+.score-card-accent:hover {
 
-    user-select:all;
+    border-color: rgba(39,197,255,.30);
+    box-shadow: 0 8px 32px rgba(39,197,255,.12);
 
-    cursor:text;
+}
+
+.score-card-success:hover {
+
+    border-color: rgba(46,204,113,.30);
+    box-shadow: 0 8px 32px rgba(46,204,113,.12);
+
+}
+
+.score-icon {
+
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    display: block;
+
+}
+
+.score-value {
+
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -.04em;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 8px;
+
+}
+
+.score-metric {
+
+    font-size: .78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--primary-light);
+    margin-bottom: 4px;
+
+}
+
+.score-label {
+
+    font-size: .72rem;
+    color: var(--text-muted);
+
+}
+
+
+/* ==========================================================
+   METRIC DETAIL ROWS (evaluation/metric_panel.py)
+   ========================================================== */
+
+.metric-detail-row {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.06);
+    margin-bottom: 10px;
+    transition: border-color .2s, transform .2s;
+
+}
+
+.metric-detail-row:hover {
+
+    border-color: rgba(109,93,246,.25);
+    transform: translateX(5px);
+
+}
+
+.metric-detail-icon {
+
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(109,93,246,.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.metric-detail-body { flex: 1; }
+
+.metric-detail-top {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+
+}
+
+.metric-detail-name {
+
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: .95rem;
+
+}
+
+.metric-detail-score {
+
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--primary-light);
+    letter-spacing: -.02em;
+
+}
+
+.metric-detail-desc {
+
+    font-size: .83rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+
+}
+
+
+/* ==========================================================
+   COMPARISON TABLE (evaluation/comparison_panel.py)
+   ========================================================== */
+
+.cmp-card {
+
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+
+}
+
+.cmp-table {
+
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.cmp-th {
+
+    padding: 14px 20px;
+    text-align: left;
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    background: rgba(255,255,255,.02);
+
+}
+
+.cmp-td {
+
+    padding: 14px 20px;
+    font-size: .9rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    vertical-align: middle;
+
+}
+
+.cmp-table tbody tr:last-child .cmp-td { border-bottom: none; }
+
+.cmp-table tbody tr:hover .cmp-td {
+
+    background: rgba(255,255,255,.025);
+
+}
+
+.cmp-td-metric {
+
+    font-weight: 700;
+    color: var(--text-primary);
+
+}
+
+.cmp-td-desc {
+
+    color: var(--text-muted);
+    font-size: .84rem;
+
+}
+
+.cmp-score {
+
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--primary-light);
+
+}
+
+
+/* ==========================================================
+   DATASET STAT CARDS (evaluation/dataset_panel.py)
+   ========================================================== */
+
+.dataset-stat-card {
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 18px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: transform .2s, border-color .2s;
+
+}
+
+.dataset-stat-card:hover {
+
+    transform: translateY(-4px);
+    border-color: rgba(109,93,246,.25);
+
+}
+
+.dataset-stat-icon {
+
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    display: block;
+
+}
+
+.dataset-stat-value {
+
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -.03em;
+    margin-bottom: 6px;
+
+}
+
+.dataset-stat-label {
+
+    font-size: .72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--text-muted);
+
+}
+
+
+/* ==========================================================
+   CONCLUSION POINTS (evaluation/conclusion_panel.py)
+   ========================================================== */
+
+.conclusion-point {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.06);
+    background: rgba(255,255,255,.025);
+    margin-bottom: 12px;
+    transition: border-color .25s, transform .25s;
+
+}
+
+.conclusion-point:hover {
+
+    border-color: rgba(109,93,246,.25);
+    transform: translateX(6px);
+
+}
+
+.conclusion-point-icon {
+
+    font-size: 1.8rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(109,93,246,.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.conclusion-point-body { flex: 1; }
+
+.conclusion-point-title {
+
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 6px;
+
+}
+
+.conclusion-point-text {
+
+    font-size: .87rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+
+}
+
+
+/* ==========================================================
+   EVALUATION HEADER (score_panel.py)
+   ========================================================== */
+
+.eval-header {
+
+    padding: 2.5rem 0 2rem;
+
+}
+
+.eval-eyebrow {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+
+}
+
+.eval-dot {
+
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    animation: pulse-dot 2s ease-in-out infinite;
+
+}
+
+.eval-title {
+
+    font-size: clamp(2rem, 4vw, 2.8rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.04em !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 12px !important;
+
+}
+
+.eval-description {
+
+    color: var(--text-secondary) !important;
+    line-height: 1.75 !important;
+    font-size: .97rem !important;
+    max-width: 620px !important;
+
+}
+
+
+/* ==========================================================
+   RESULT CARD (caption/result_panel.py)
+   ========================================================== */
+
+.result-card {
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+    transition: border-color .25s, box-shadow .25s;
+
+}
+
+.result-card:hover {
+
+    border-color: rgba(255,255,255,.12);
+
+}
+
+.result-card-accent {
+
+    border-color: rgba(109,93,246,.35);
+    box-shadow: 0 0 28px rgba(109,93,246,.08);
+
+}
+
+.result-card-accent:hover {
+
+    border-color: var(--primary);
+    box-shadow: var(--shadow-primary);
+
+}
+
+.result-header {
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+
+}
+
+.result-badge {
+
+    font-size: 1.4rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.result-header-text {
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+}
+
+.result-label {
+
+    font-size: .72rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .10em;
+
+}
+
+.result-text {
+
+    color: var(--text-secondary);
+    line-height: 1.85;
+    font-size: .97rem;
+
+}
+
+.result-copy-hint {
+
+    font-size: .78rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+
+}
+
+.result-copy-box {
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 14px;
+    padding: 18px 22px;
+    color: var(--text-secondary);
+    line-height: 1.85;
+    user-select: all;
+    cursor: text;
 
 }

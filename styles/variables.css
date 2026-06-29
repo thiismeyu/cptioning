@@ -1,6 +1,7 @@
 /* ============================================================
    ARRAI DESIGN SYSTEM
    File : styles/variables.css
+   Source of truth — semua token UI ada di sini.
    ============================================================ */
 
 :root {
@@ -11,69 +12,91 @@
 
     --brand-name: "ARRAI";
 
+
     /* ========================================================
-       PRIMARY COLORS
+       PRIMARY COLOR
     ======================================================== */
 
-    --primary: #6D5DF6;
-    --primary-dark: #5B4CE2;
-    --primary-light: #8E81FF;
-    --primary-glow: rgba(109,93,246,0.3);
+    --primary:            #6D5DF6;
+    --primary-dark:       #5B4CE2;
+    --primary-light:      #8E81FF;
+    --primary-glow:       rgba(109,93,246,.30);
+    --primary-subtle:     rgba(109,93,246,.06);
 
-    --accent: #27C5FF;
-    --accent-dark: #00AEEA;
-    --accent-glow: rgba(39,197,255,0.3);
+    --accent:             #27C5FF;
+    --accent-dark:        #00AEEA;
+    --accent-glow:        rgba(39,197,255,.30);
+    --accent-subtle:      rgba(39,197,255,.06);
 
-    --glow-white: rgba(255,255,255,0.05);
+    --glow-white:         rgba(255,255,255,.05);
+
 
     /* ========================================================
        BACKGROUND
     ======================================================== */
 
-    --background: #090C10;
+    --background:           #090C10;
     --background-secondary: #10141B;
-    --background-tertiary: #161B24;
+    --background-tertiary:  #161B24;
 
-    --surface: #181F2A;
-    --surface-hover: #202837;
+    --surface:              #181F2A;
+    --surface-hover:        #202837;
+    --surface-elevated:     #1E2532;
 
-    --glass: rgba(255,255,255,.05);
-    --glass-hover: rgba(255,255,255,.08);
+    --glass:                rgba(255,255,255,.05);
+    --glass-hover:          rgba(255,255,255,.08);
+    --glass-border:         rgba(255,255,255,.08);
 
-    /* Grid Pattern */
-    --pattern-grid: 
-        linear-gradient(rgba(109,93,246,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(109,93,246,0.03) 1px, transparent 1px);
-    --pattern-size: 50px 50px;
+    /* Grid pattern */
+    --pattern-grid:
+        linear-gradient(rgba(109,93,246,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(109,93,246,.025) 1px, transparent 1px);
+    --pattern-size: 52px 52px;
+
 
     /* ========================================================
        TEXT
     ======================================================== */
 
-    --text-primary: #F5F7FA;
+    --text-primary:   #F5F7FA;
     --text-secondary: #B7C0CE;
-    --text-muted: #8E98A8;
+    --text-muted:     #8E98A8;
+    --text-disabled:  #5A6272;
+    --text-inverse:   #090C10;
+
 
     /* ========================================================
        STATUS
     ======================================================== */
 
-    --success: #2ECC71;
-    --success-glow: rgba(46,204,113,0.3);
-    --warning: #F5B041;
-    --warning-glow: rgba(245,176,65,0.3);
-    --danger: #FF5B5B;
-    --danger-glow: rgba(255,91,91,0.3);
-    --info: #27C5FF;
-    --info-glow: rgba(39,197,255,0.3);
+    --success:       #2ECC71;
+    --success-glow:  rgba(46,204,113,.30);
+    --success-subtle:rgba(46,204,113,.06);
+
+    --warning:       #F5B041;
+    --warning-glow:  rgba(245,176,65,.30);
+    --warning-subtle:rgba(245,176,65,.06);
+
+    --danger:        #FF5B5B;
+    --danger-glow:   rgba(255,91,91,.30);
+    --danger-subtle: rgba(255,91,91,.06);
+
+    --info:          #27C5FF;
+    --info-glow:     rgba(39,197,255,.30);
+    --info-subtle:   rgba(39,197,255,.06);
+
 
     /* ========================================================
        BORDER
     ======================================================== */
 
-    --border: rgba(255,255,255,.08);
-    --border-light: rgba(255,255,255,.12);
-    --border-hover: rgba(255,255,255,.2);
+    --border:         rgba(255,255,255,.08);
+    --border-light:   rgba(255,255,255,.12);
+    --border-hover:   rgba(255,255,255,.20);
+    --border-primary: rgba(109,93,246,.35);
+    --border-accent:  rgba(39,197,255,.25);
+    --border-success: rgba(46,204,113,.25);
+
 
     /* ========================================================
        SHADOW
@@ -84,35 +107,40 @@
     --shadow-md: 0 15px 35px rgba(0,0,0,.30);
     --shadow-lg: 0 25px 60px rgba(0,0,0,.40);
 
-    --shadow-primary: 0 10px 30px rgba(109,93,246,.25);
+    --shadow-primary:      0 10px 30px rgba(109,93,246,.25);
     --shadow-primary-glow: 0 0 60px rgba(109,93,246,.15);
-    --shadow-accent: 0 10px 30px rgba(39,197,255,.25);
+    --shadow-accent:       0 10px 30px rgba(39,197,255,.20);
+    --shadow-success:      0 8px 24px rgba(46,204,113,.18);
+
 
     /* ========================================================
        BORDER RADIUS
     ======================================================== */
 
-    --radius-xs: 6px;
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 22px;
-    --radius-xl: 30px;
+    --radius-xs:    6px;
+    --radius-sm:    10px;
+    --radius-md:    16px;
+    --radius-lg:    22px;
+    --radius-xl:    30px;
+    --radius-2xl:   40px;
     --radius-round: 999px;
+
 
     /* ========================================================
        SPACING
     ======================================================== */
 
-    --space-1: .25rem;
-    --space-2: .5rem;
-    --space-3: .75rem;
-    --space-4: 1rem;
-    --space-5: 1.5rem;
-    --space-6: 2rem;
-    --space-7: 3rem;
-    --space-8: 4rem;
-    --space-9: 5rem;
-    --space-10: 6rem;
+    --space-1:  .25rem;   /*  4px */
+    --space-2:  .5rem;    /*  8px */
+    --space-3:  .75rem;   /* 12px */
+    --space-4:  1rem;     /* 16px */
+    --space-5:  1.5rem;   /* 24px */
+    --space-6:  2rem;     /* 32px */
+    --space-7:  3rem;     /* 48px */
+    --space-8:  4rem;     /* 64px */
+    --space-9:  5rem;     /* 80px */
+    --space-10: 6rem;     /* 96px */
+
 
     /* ========================================================
        TYPOGRAPHY
@@ -120,86 +148,116 @@
 
     --font-family:
         "Inter",
+        "SF Pro Display",
         "Segoe UI",
+        -apple-system,
         sans-serif;
 
-    --font-xs: .75rem;
-    --font-sm: .875rem;
-    --font-md: 1rem;
-    --font-lg: 1.15rem;
-    --font-xl: 1.5rem;
-    --font-2xl: 2rem;
-    --font-3xl: 3rem;
-    --font-4xl: 4rem;
-    --font-5xl: 5rem;
+    --font-xs:   .72rem;
+    --font-sm:   .875rem;
+    --font-md:   1rem;
+    --font-lg:   1.15rem;
+    --font-xl:   1.5rem;
+    --font-2xl:  2rem;
+    --font-3xl:  3rem;
+    --font-4xl:  4rem;
+    --font-5xl:  5rem;
 
-    --weight-light: 300;
-    --weight-normal: 400;
-    --weight-medium: 500;
-    --weight-semibold: 600;
-    --weight-bold: 700;
+    --weight-light:     300;
+    --weight-normal:    400;
+    --weight-medium:    500;
+    --weight-semibold:  600;
+    --weight-bold:      700;
     --weight-extrabold: 800;
-    --weight-black: 900;
+    --weight-black:     900;
 
-    --letter-spacing-tight: -0.02em;
-    --letter-spacing-normal: 0;
-    --letter-spacing-wide: 0.05em;
+    --letter-tight:  -.04em;
+    --letter-normal:  0;
+    --letter-wide:    .05em;
+    --letter-wider:   .10em;
+    --letter-widest:  .14em;
+
+    /* Backward-compat aliases */
+    --letter-spacing-tight:  -.02em;
+    --letter-spacing-normal:  0;
+    --letter-spacing-wide:    .05em;
+
 
     /* ========================================================
        TRANSITIONS
     ======================================================== */
 
-    --transition-fast: .20s ease;
+    --transition-fast:   .20s ease;
     --transition-normal: .35s ease;
-    --transition-slow: .60s ease;
-    --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-slow:   .60s ease;
+    --transition-bounce: cubic-bezier(.34, 1.56, .64, 1);
+
 
     /* ========================================================
        LAYOUT
     ======================================================== */
 
     --container-width: 1400px;
-    --navbar-height: 78px;
-    --sidebar-width: 290px;
+    --navbar-height:   72px;
+    --sidebar-width:   290px;
+
 
     /* ========================================================
        BUTTON
     ======================================================== */
 
-    --button-height: 54px;
-    --button-min-width: 120px;
+    /*
+      44px = sweet spot untuk Streamlit.
+      54px bikin tombol terlalu tinggi di dalam columns.
+    */
+    --button-height:     44px;
+    --button-min-width:  120px;
+
 
     /* ========================================================
        CARD
     ======================================================== */
 
     --card-padding: 24px;
-    --card-gap: 20px;
+    --card-gap:     20px;
+    --card-radius:  var(--radius-lg);
+
 
     /* ========================================================
        HERO
     ======================================================== */
 
-    --hero-title-size: clamp(3rem, 6vw, 5rem);
-    --hero-subtitle-size: clamp(1.2rem, 2vw, 2rem);
-    --hero-description-size: 1.1rem;
+    --hero-title-size:       clamp(3.2rem, 5.5vw, 5.2rem);
+    --hero-subtitle-size:    clamp(1.2rem, 2vw, 2rem);
+    --hero-description-size: 1.06rem;
+
 
     /* ========================================================
        GRADIENT
     ======================================================== */
 
     --gradient-primary:
-        linear-gradient(
-            135deg,
-            #6D5DF6,
-            #27C5FF
-        );
+        linear-gradient(135deg, #6D5DF6, #27C5FF);
 
     --gradient-primary-reverse:
+        linear-gradient(135deg, #27C5FF, #6D5DF6);
+
+    --gradient-primary-vertical:
+        linear-gradient(180deg, #6D5DF6, #27C5FF);
+
+    /* Subtle surface gradients */
+    --gradient-surface:
         linear-gradient(
             135deg,
-            #27C5FF,
-            #6D5DF6
+            rgba(109,93,246,.08),
+            rgba(39,197,255,.04)
+        );
+
+    --gradient-glass:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06) 0%,
+            rgba(255,255,255,.02) 100%
         );
 
     --gradient-card:
@@ -210,95 +268,148 @@
         );
 
     --gradient-dark:
-        linear-gradient(
-            180deg,
-            #090C10,
-            #10141B
-        );
+        linear-gradient(180deg, #090C10, #10141B);
 
     --gradient-hero:
         radial-gradient(
             ellipse at 20% 50%,
-            rgba(109,93,246,0.15) 0%,
+            rgba(109,93,246,.15) 0%,
             transparent 60%
         ),
         radial-gradient(
             ellipse at 80% 50%,
-            rgba(39,197,255,0.1) 0%,
+            rgba(39,197,255,.10) 0%,
             transparent 60%
         );
 
+    /* Glow overlays */
+    --gradient-glow-primary:
+        radial-gradient(
+            circle at center,
+            rgba(109,93,246,.20),
+            transparent 70%
+        );
+
+    --gradient-glow-accent:
+        radial-gradient(
+            circle at center,
+            rgba(39,197,255,.15),
+            transparent 70%
+        );
+
+
     /* ========================================================
-       OPACITY
+       OPACITY SCALE
     ======================================================== */
 
-    --opacity-low: 0.05;
-    --opacity-medium: 0.1;
-    --opacity-high: 0.2;
-    --opacity-full: 1;
+    --opacity-low:    .05;
+    --opacity-medium: .10;
+    --opacity-high:   .20;
+    --opacity-full:   1;
+
 
     /* ========================================================
        Z-INDEX
     ======================================================== */
 
-    --z-base: 1;
-    --z-elevated: 10;
-    --z-dropdown: 50;
-    --z-modal: 100;
-    --z-tooltip: 200;
-    --z-toast: 300;
+    --z-base:      1;
+    --z-elevated:  10;
+    --z-dropdown:  50;
+    --z-modal:     100;
+    --z-tooltip:   200;
+    --z-toast:     300;
+    --z-overlay:   400;
+
 
     /* ========================================================
        ANIMATION
     ======================================================== */
 
-    --animation-duration-fast: 0.3s;
-    --animation-duration-normal: 0.6s;
-    --animation-duration-slow: 1s;
+    --anim-fast:   .30s;
+    --anim-normal: .60s;
+    --anim-slow:   1s;
 
-    --animation-ease: ease;
-    --animation-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --anim-ease:   ease;
+    --anim-bounce: cubic-bezier(.34, 1.56, .64, 1);
+    --anim-spring: cubic-bezier(.175, .885, .32, 1.275);
+
+    /* Backward-compat aliases */
+    --animation-duration-fast:   .30s;
+    --animation-duration-normal: .60s;
+    --animation-duration-slow:   1s;
+    --animation-ease:            ease;
+    --animation-bounce:          cubic-bezier(.34, 1.56, .64, 1);
 
 }
+
 
 /* ============================================================
    SCROLLBAR
 ============================================================ */
 
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+
+    width: 8px;
+    height: 8px;
+
 }
 
 ::-webkit-scrollbar-track {
+
     background: var(--background);
+
 }
 
 ::-webkit-scrollbar-thumb {
+
     background: var(--background-tertiary);
     border-radius: var(--radius-round);
+
 }
 
 ::-webkit-scrollbar-thumb:hover {
+
     background: var(--primary);
+
 }
 
-/* Firefox */
 * {
     scrollbar-width: thin;
     scrollbar-color: var(--background-tertiary) var(--background);
 }
+
 
 /* ============================================================
    SELECTION
 ============================================================ */
 
 ::selection {
+
     background: var(--primary);
     color: white;
+
 }
 
 ::-moz-selection {
+
     background: var(--primary);
     color: white;
+
+}
+
+
+/* ============================================================
+   GLOBAL RESET ADDITIONS
+============================================================ */
+
+*, *::before, *::after {
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
 }

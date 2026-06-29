@@ -1,70 +1,39 @@
 """
 components/evaluation/dataset_panel.py
-
-ARRAI Dataset Panel
+ARRAI Dataset Info Panel
 """
-
 from __future__ import annotations
-
 import streamlit as st
-
 from components.ui.section import section_title
-
 from utils.evaluation_service import get_dataset_information
 
-
-# ==========================================================
-# PUBLIC
-# ==========================================================
+_ICONS = {
+    "Evaluation Samples":    "🗂",
+    "Average Caption Length": "📏",
+    "Caption Field":          "🏷",
+    "Evaluation File":        "📄",
+}
 
 def render_dataset_panel() -> None:
 
     section_title(
-
-        "Dataset Information",
-
-        "Dataset and evaluation configuration.",
-
+        "Dataset & Configuration",
+        "Training and evaluation dataset details.",
     )
 
-    html = """
+    items = get_dataset_information()
+    cols  = st.columns(len(items))
 
-<div class="model-card">
-
-"""
-
-    for key, value in get_dataset_information():
-
-        html += f"""
-
-<div class="model-item">
-
-<div class="model-label">
-
-{key}
-
+    for col, (key, value) in zip(cols, items):
+        icon = _ICONS.get(key, "📌")
+        with col:
+            st.markdown(
+                f"""
+<div class="dataset-stat-card">
+  <div class="dataset-stat-icon">{icon}</div>
+  <div class="dataset-stat-value">{value}</div>
+  <div class="dataset-stat-label">{key}</div>
 </div>
-
-<div class="model-value">
-
-{value}
-
-</div>
-
-</div>
-
-"""
-
-    html += """
-
-</div>
-
-"""
-
-    st.markdown(
-
-        html,
-
-        unsafe_allow_html=True,
-
-    )
+""",
+                unsafe_allow_html=True,
+            )
