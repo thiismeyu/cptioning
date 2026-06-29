@@ -15,29 +15,10 @@ def render_empty_state() -> None:
     """
 
     st.markdown(
-        """
-<div class="empty-state">
-
-<div class="empty-icon">
-
-🖼️
-
-</div>
-
-<div class="empty-title">
-
-No Image Selected
-
-</div>
-
-<div class="empty-description">
-
-Upload an image to generate multilingual captions
-using the fine-tuned ClipCap AI model.
-
-</div>
-
-</div>
-""",
+        """<div class="empty-state">
+<div class="empty-icon">🖼️</div>
+<div class="empty-title">No Image Selected</div>
+<div class="empty-description">Upload an image to generate multilingual captions using the fine-tuned ClipCap AI model.</div>
+</div>""",
         unsafe_allow_html=True,
     )

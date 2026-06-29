@@ -69,29 +69,11 @@ def _feature_card(
 ) -> None:
 
     st.markdown(
-        f"""
-<div class="feature-card">
-
-<div class="feature-icon">
-
-{icon}
-
-</div>
-
-<div class="feature-title">
-
-{title}
-
-</div>
-
-<div class="feature-description">
-
-{description}
-
-</div>
-
-</div>
-""",
+        f"""<div class="feature-card">
+<div class="feature-icon">{icon}</div>
+<div class="feature-title">{title}</div>
+<div class="feature-description">{description}</div>
+</div>""",
         unsafe_allow_html=True,
     )
 # ==========================================================
@@ -125,20 +107,8 @@ def _render_grid() -> None:
 def render_features() -> None:
 
     st.markdown(
-        """
-<h2 class="section-title">
-
-Why ARRAI?
-
-</h2>
-
-<p class="section-description">
-
-Modern AI Captioning Platform built for
-research, education and production-ready demonstrations.
-
-</p>
-""",
+        """<h2 class="section-title">Why ARRAI?</h2>
+<p class="section-description">Modern AI Captioning Platform built for research, education and production-ready demonstrations.</p>""",
         unsafe_allow_html=True,
     )
 

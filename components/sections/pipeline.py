@@ -69,35 +69,12 @@ def _pipeline_card(
 ) -> None:
 
     st.markdown(
-        f"""
-<div class="pipeline-stage">
-
-<div class="pipeline-step">
-
-{item["step"]}
-
-</div>
-
-<div class="pipeline-stage-icon">
-
-{item["icon"]}
-
-</div>
-
-<div class="pipeline-stage-title">
-
-{item["title"]}
-
-</div>
-
-<div class="pipeline-stage-description">
-
-{item["description"]}
-
-</div>
-
-</div>
-""",
+        f"""<div class="pipeline-stage">
+<div class="pipeline-step">{item["step"]}</div>
+<div class="pipeline-stage-icon">{item["icon"]}</div>
+<div class="pipeline-stage-title">{item["title"]}</div>
+<div class="pipeline-stage-description">{item["description"]}</div>
+</div>""",
         unsafe_allow_html=True,
     )
 # ==========================================================
@@ -115,13 +92,7 @@ def _render_pipeline() -> None:
             _pipeline_card(item)
 
     st.markdown(
-        """
-<div class="pipeline-connector">
-
-↓
-
-</div>
-""",
+        '<div class="pipeline-connector">↓</div>',
         unsafe_allow_html=True,
     )
 
@@ -139,20 +110,8 @@ def _render_pipeline() -> None:
 def render_pipeline() -> None:
 
     st.markdown(
-        """
-<h2 class="section-title">
-
-ARRAI AI Pipeline
-
-</h2>
-
-<p class="section-description">
-
-From computer vision to multilingual language generation
-through an end-to-end AI workflow.
-
-</p>
-""",
+        """<h2 class="section-title">ARRAI AI Pipeline</h2>
+<p class="section-description">From computer vision to multilingual language generation through an end-to-end AI workflow.</p>""",
         unsafe_allow_html=True,
     )
 

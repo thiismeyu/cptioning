@@ -29,33 +29,18 @@ def render_model_panel(
 
         return
 
-    html = """
-<div class="model-card">
-"""
+    html = '<div class="model-card">'
 
     for key, value in model_info.items():
 
-        html += f"""
-<div class="model-item">
+        html += (
+            f'<div class="model-item">'
+            f'<div class="model-label">{key}</div>'
+            f'<div class="model-value">{value}</div>'
+            f'</div>'
+        )
 
-<div class="model-label">
-
-{key}
-
-</div>
-
-<div class="model-value">
-
-{value}
-
-</div>
-
-</div>
-"""
-
-    html += """
-</div>
-"""
+    html += "</div>"
 
     st.markdown(
         html,

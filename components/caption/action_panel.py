@@ -24,13 +24,7 @@ def render_action_panel() -> bool:
     """
 
     st.markdown(
-        """
-<h2 class="section-title">
-
-Actions
-
-</h2>
-""",
+        '<h2 class="section-title">Actions</h2>',
         unsafe_allow_html=True,
     )
 

@@ -29,27 +29,15 @@ def _caption_html(
 
     accent_class = " result-card-accent" if accent else ""
 
-    return f"""
-<div class="result-card{accent_class}">
-
-  <div class="result-header">
-
-    <div class="result-badge">
-      {badge_emoji}
-    </div>
-
-    <div class="result-header-text">
-      <div class="result-label">{label}</div>
-    </div>
-
-  </div>
-
-  <div class="result-text">
-    {caption}
-  </div>
-
-</div>
-"""
+    return (
+        f'<div class="result-card{accent_class}">'
+        f'<div class="result-header">'
+        f'<div class="result-badge">{badge_emoji}</div>'
+        f'<div class="result-header-text"><div class="result-label">{label}</div></div>'
+        f'</div>'
+        f'<div class="result-text">{caption}</div>'
+        f'</div>'
+    )
 
 
 def _copy_hint_html(caption: str) -> str:

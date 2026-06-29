@@ -18,13 +18,7 @@ def render_export_panel(
 ):
 
     st.markdown(
-        """
-<h2 class="section-title">
-
-Export Result
-
-</h2>
-""",
+        '<h2 class="section-title">Export Result</h2>',
         unsafe_allow_html=True,
     )
 

@@ -73,27 +73,22 @@ def render_overview() -> None:
         st.markdown(
             """
 <div class="about-stats-grid">
-
   <div class="about-stat-card">
     <div class="about-stat-value">191</div>
     <div class="about-stat-label">Training Images</div>
   </div>
-
   <div class="about-stat-card">
     <div class="about-stat-value">5</div>
     <div class="about-stat-label">Local Categories</div>
   </div>
-
   <div class="about-stat-card">
     <div class="about-stat-value">31.23</div>
     <div class="about-stat-label">METEOR Score</div>
   </div>
-
   <div class="about-stat-card">
     <div class="about-stat-value">5</div>
     <div class="about-stat-label">Output Languages</div>
   </div>
-
 </div>
 """,
             unsafe_allow_html=True,

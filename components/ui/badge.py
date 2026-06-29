@@ -14,14 +14,6 @@ def badge(
 ) -> None:
 
     st.markdown(
-        f"""
-<div class="badge">
-
-<span class="badge-dot"></span>
-
-{text}
-
-</div>
-""",
+        f'<div class="badge"><span class="badge-dot"></span>{text}</div>',
         unsafe_allow_html=True,
     )

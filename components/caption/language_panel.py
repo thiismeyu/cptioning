@@ -29,13 +29,7 @@ def render_language_panel() -> tuple[str, str]:
     """
 
     st.markdown(
-        """
-<h3 class="section-title">
-
-Output Language
-
-</h3>
-""",
+        '<h3 class="section-title">Output Language</h3>',
         unsafe_allow_html=True,
     )
 

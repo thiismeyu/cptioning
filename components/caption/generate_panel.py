@@ -16,13 +16,7 @@ import streamlit as st
 def render_generate_panel() -> bool:
 
     st.markdown(
-        """
-<h3 class="section-title">
-
-Generate Caption
-
-</h3>
-""",
+        '<h3 class="section-title">Generate Caption</h3>',
         unsafe_allow_html=True,
     )
 

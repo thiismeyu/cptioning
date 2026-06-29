@@ -27,30 +27,13 @@ _LINKS = [
 def _render_top() -> None:
 
     st.markdown(
-        f"""
-<div class="footer-top">
-
+        f"""<div class="footer-top">
   <div class="footer-brand">
-
-    <div class="footer-logo-row">
-      <div class="footer-logo-icon">⬡</div>
-      <div class="footer-logo-name">ARRAI</div>
-    </div>
-
-    <p class="footer-description">
-      Multilingual AI image captioning powered by
-      ClipCap — CLIP Vision Encoder, Transformer Mapper,
-      GPT-2, and Deep Translator.
-    </p>
-
-    <div class="footer-badge">
-      Research · Universitas Halu Oleo · {_VERSION}
-    </div>
-
+    <div class="footer-logo-row"><div class="footer-logo-icon">⬡</div><div class="footer-logo-name">ARRAI</div></div>
+    <p class="footer-description">Multilingual AI image captioning powered by ClipCap — CLIP Vision Encoder, Transformer Mapper, GPT-2, and Deep Translator.</p>
+    <div class="footer-badge">Research · Universitas Halu Oleo · {_VERSION}</div>
   </div>
-
-</div>
-""",
+</div>""",
         unsafe_allow_html=True,
     )
 

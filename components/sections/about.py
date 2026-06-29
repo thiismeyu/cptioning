@@ -11,35 +11,21 @@ import streamlit as st
 
 _TITLE = "Research-Driven AI Platform"
 
-_DESCRIPTION = """
-ARRAI is a multilingual image captioning platform developed
-for research, education and real-world AI applications.
-
-The platform combines CLIP Vision Encoder,
-Transformer Mapper, GPT-2 Language Model,
-and automatic translation into a unified
-end-to-end workflow.
-"""
+_DESCRIPTION = (
+    "ARRAI is a multilingual image captioning platform developed "
+    "for research, education and real-world AI applications. "
+    "The platform combines CLIP Vision Encoder, "
+    "Transformer Mapper, GPT-2 Language Model, "
+    "and automatic translation into a unified "
+    "end-to-end workflow."
+)
 def _about_card():
     
     st.markdown(
-        f"""
-<div class="glass">
-
-<h2 class="section-title">
-
-{_TITLE}
-
-</h2>
-
-<p class="section-description">
-
-{_DESCRIPTION}
-
-</p>
-
-</div>
-""",
+        f"""<div class="glass">
+<h2 class="section-title">{_TITLE}</h2>
+<p class="section-description">{_DESCRIPTION}</p>
+</div>""",
         unsafe_allow_html=True,
     )
 

@@ -13,25 +13,13 @@ def section_title(
 ) -> None:
 
     st.markdown(
-        f"""
-<h2 class="section-title">
-
-{title}
-
-</h2>
-""",
+        f'<h2 class="section-title">{title}</h2>',
         unsafe_allow_html=True,
     )
 
     if description:
 
         st.markdown(
-            f"""
-<p class="section-description">
-
-{description}
-
-</p>
-""",
+            f'<p class="section-description">{description}</p>',
             unsafe_allow_html=True,
         )

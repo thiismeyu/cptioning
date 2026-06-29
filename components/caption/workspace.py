@@ -24,30 +24,13 @@ from components.caption.generate_panel import render_generate_panel
 def _render_page_header() -> None:
 
     st.markdown(
-        """
-<div class="studio-header">
-
+        """<div class="studio-header">
   <div class="studio-header-left">
-
-    <div class="studio-eyebrow">
-      <span class="studio-dot"></span>
-      CAPTION STUDIO
-    </div>
-
-    <h1 class="studio-title">
-      Generate Caption
-    </h1>
-
-    <p class="studio-description">
-      Upload an image, choose your output language,
-      and let ARRAI generate a multilingual caption
-      using fine-tuned ClipCap.
-    </p>
-
+    <div class="studio-eyebrow"><span class="studio-dot"></span>CAPTION STUDIO</div>
+    <h1 class="studio-title">Generate Caption</h1>
+    <p class="studio-description">Upload an image, choose your output language, and let ARRAI generate a multilingual caption using fine-tuned ClipCap.</p>
   </div>
-
-</div>
-""",
+</div>""",
         unsafe_allow_html=True,
     )
 
@@ -56,22 +39,11 @@ def _render_right_empty() -> None:
     """Empty state untuk right panel saat belum ada gambar."""
 
     st.markdown(
-        """
-<div class="studio-empty">
-
+        """<div class="studio-empty">
   <div class="studio-empty-icon">🖼</div>
-
-  <div class="studio-empty-title">
-    No image yet
-  </div>
-
-  <div class="studio-empty-description">
-    Upload an image on the left to start generating
-    multilingual captions.
-  </div>
-
-</div>
-""",
+  <div class="studio-empty-title">No image yet</div>
+  <div class="studio-empty-description">Upload an image on the left to start generating multilingual captions.</div>
+</div>""",
         unsafe_allow_html=True,
     )
 
@@ -83,26 +55,11 @@ def _render_image_info(uploaded) -> None:
     file_type = uploaded.type.split("/")[-1].upper()
 
     st.markdown(
-        f"""
-<div class="image-info-bar">
-
-  <div class="image-info-item">
-    <span class="image-info-label">File</span>
-    <span class="image-info-value">{uploaded.name}</span>
-  </div>
-
-  <div class="image-info-item">
-    <span class="image-info-label">Type</span>
-    <span class="image-info-value">{file_type}</span>
-  </div>
-
-  <div class="image-info-item">
-    <span class="image-info-label">Size</span>
-    <span class="image-info-value">{size_kb} KB</span>
-  </div>
-
-</div>
-""",
+        f"""<div class="image-info-bar">
+  <div class="image-info-item"><span class="image-info-label">File</span><span class="image-info-value">{uploaded.name}</span></div>
+  <div class="image-info-item"><span class="image-info-label">Type</span><span class="image-info-value">{file_type}</span></div>
+  <div class="image-info-item"><span class="image-info-label">Size</span><span class="image-info-value">{size_kb} KB</span></div>
+</div>""",
         unsafe_allow_html=True,
     )
 

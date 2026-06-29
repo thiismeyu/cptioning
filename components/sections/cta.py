@@ -15,11 +15,11 @@ from components.ui.button import (
 
 _TITLE = "Ready to Experience ARRAI?"
 
-_DESCRIPTION = """
-Generate multilingual captions using our
-fine-tuned ClipCap architecture and
-experience research-grade AI in seconds.
-"""
+_DESCRIPTION = (
+    "Generate multilingual captions using our "
+    "fine-tuned ClipCap architecture and "
+    "experience research-grade AI in seconds."
+)
 
 
 # ==========================================================
@@ -29,23 +29,11 @@ experience research-grade AI in seconds.
 def _render_cta() -> None:
 
     st.markdown(
-        f"""
-<div class="cta-card">
-
-<div class="cta-badge">
-AI PLATFORM
-</div>
-
-<h2 class="cta-title">
-{_TITLE}
-</h2>
-
-<p class="cta-description">
-{_DESCRIPTION}
-</p>
-
-</div>
-""",
+        f"""<div class="cta-card">
+<div class="cta-badge">AI PLATFORM</div>
+<h2 class="cta-title">{_TITLE}</h2>
+<p class="cta-description">{_DESCRIPTION}</p>
+</div>""",
         unsafe_allow_html=True,
     )
 

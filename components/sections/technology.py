@@ -51,35 +51,12 @@ _TECHNOLOGIES = [
 def _technology_card(item: dict) -> None:
 
     st.markdown(
-        f"""
-<div class="technology-card">
-
-<div class="technology-icon">
-
-{item["icon"]}
-
-</div>
-
-<div class="technology-name">
-
-{item["name"]}
-
-</div>
-
-<div class="technology-subtitle">
-
-{item["subtitle"]}
-
-</div>
-
-<div class="technology-description">
-
-{item["description"]}
-
-</div>
-
-</div>
-""",
+        f"""<div class="technology-card">
+<div class="technology-icon">{item["icon"]}</div>
+<div class="technology-name">{item["name"]}</div>
+<div class="technology-subtitle">{item["subtitle"]}</div>
+<div class="technology-description">{item["description"]}</div>
+</div>""",
         unsafe_allow_html=True,
     )
 # ==========================================================
@@ -102,21 +79,8 @@ def _render_grid() -> None:
 def render_technology() -> None:
 
     st.markdown(
-        """
-<h2 class="section-title">
-
-Technology Stack
-
-</h2>
-
-<p class="section-description">
-
-ARRAI integrates state-of-the-art computer vision,
-natural language processing and multilingual translation
-into a unified AI workflow.
-
-</p>
-""",
+        """<h2 class="section-title">Technology Stack</h2>
+<p class="section-description">ARRAI integrates state-of-the-art computer vision, natural language processing and multilingual translation into a unified AI workflow.</p>""",
         unsafe_allow_html=True,
     )
 
