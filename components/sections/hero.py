@@ -112,7 +112,7 @@ def _render_left() -> None:
 
 
 def _render_right() -> None:
-
+    
     nodes_html = ""
     for i, (icon, name, subtitle) in enumerate(_PIPELINE):
         is_last = i == len(_PIPELINE) - 1
@@ -166,15 +166,13 @@ def _render_right() -> None:
     padding: 28px 24px;
     backdrop-filter: blur(20px);
     position: relative;
-    overflow: hidden;
-">
+    overflow: hidden;">
     <div style="
         position: absolute; top: 0; right: 0;
         width: 200px; height: 200px;
         background: radial-gradient(circle at top right, rgba(109,93,246,.10), transparent 70%);
         pointer-events: none;
     "></div>
-
     <div style="
         display:inline-flex; align-items:center; gap:8px;
         padding: 5px 12px;
@@ -186,18 +184,15 @@ def _render_right() -> None:
         text-transform:uppercase;
         margin-bottom:14px;
     ">AI PIPELINE</div>
-
     <h3 style="
         font-size:1.15rem; font-weight:800;
         color:#F5F7FA; margin-bottom:8px;
         letter-spacing:-.02em; line-height:1.2;
     ">Multilingual Caption Generation</h3>
-
     <p style="
         color:#8E98A8; font-size:.84rem;
         line-height:1.65; margin-bottom:20px;
     ">From image understanding to natural language output.</p>
-
     {nodes_html}
 </div>
 """, unsafe_allow_html=True)
