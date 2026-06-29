@@ -15,8 +15,6 @@ _ITEMS = [
      "Multi-page app with Caption Studio, Evaluation, and About pages."),
     ("done",    "✅", "Evaluation Pipeline",
      "BLEU, ROUGE-L, METEOR, CIDEr computed on local test set."),
-    ("active",  "🔄", "Paper Writing",
-     "Targeting national journal publication in Sinta range."),
     ("planned", "📋", "Dataset Expansion",
      "Collecting more local images for improved generalization."),
 ]

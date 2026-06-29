@@ -113,7 +113,7 @@ APP_DESCRIPTION = (
 APP_AUTHOR = "ARRAI Research Lab"
 APP_VERSION = "1.0.0"
 
-RESEARCHER = "Ayu"
+RESEARCHER = "Ayu Lutfiah, Rayhan Permana Putra, Rahmah Yuniati"
 
 INSTITUTION = "Universitas Halu Oleo"
 

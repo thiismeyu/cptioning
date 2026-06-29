@@ -73,7 +73,6 @@ def render_information() -> None:
             ("Institution", INSTITUTION),
             ("Author",      APP_AUTHOR),
             ("Version",     APP_VERSION),
-            ("Target",      "Sinta 2–3 Journal"),
             ("Status",      "Active Development"),
         ]:
             st.markdown(
